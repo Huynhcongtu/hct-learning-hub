@@ -1,0 +1,110 @@
+site_name: HUYNH CONG TU Learning Hub
+site_description: Embedded Systems • Microelectronics • IC Design
+site_author: Huynh Cong Tu
+site_url: ""
+
+theme:
+  name: material
+  language: vi
+  logo: assets/images/hct-logo.svg
+  favicon: assets/images/hct-logo.svg
+  font:
+    text: Roboto
+    code: Roboto Mono
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/weather-night
+        name: Chuyển sang chế độ tối
+    - scheme: slate
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/weather-sunny
+        name: Chuyển sang chế độ sáng
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - navigation.instant
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - toc.follow
+
+nav:
+  - Trang chủ: index.md
+  - Embedded Systems:
+      - Tổng quan: courses/embedded-systems/index.md
+      - Kỹ thuật Vi điều khiển:
+          - Tổng quan học phần: courses/embedded-systems/microcontroller/index.md
+          - Đề cương: courses/embedded-systems/microcontroller/syllabus.md
+          - Learning Path: courses/embedded-systems/microcontroller/learning-path.md
+          - Đánh giá: courses/embedded-systems/microcontroller/assessment.md
+          - Tuần 01 · Tổng quan MCU: courses/embedded-systems/microcontroller/weeks/week01.md
+          - Tuần 02 · Môi trường & C: courses/embedded-systems/microcontroller/weeks/week02.md
+          - Tuần 03 · GPIO: courses/embedded-systems/microcontroller/weeks/week03.md
+          - Tuần 04 · Interrupts: courses/embedded-systems/microcontroller/weeks/week04.md
+          - Tuần 05 · Timers: courses/embedded-systems/microcontroller/weeks/week05.md
+          - Tuần 06 · PWM: courses/embedded-systems/microcontroller/weeks/week06.md
+          - Tuần 07 · ADC: courses/embedded-systems/microcontroller/weeks/week07.md
+          - Tuần 08 · UART: courses/embedded-systems/microcontroller/weeks/week08.md
+          - Tuần 09 · SPI: courses/embedded-systems/microcontroller/weeks/week09.md
+          - Tuần 10 · I²C: courses/embedded-systems/microcontroller/weeks/week10.md
+          - Tuần 11 · Sensors: courses/embedded-systems/microcontroller/weeks/week11.md
+          - Tuần 12 · Actuators & Motor: courses/embedded-systems/microcontroller/weeks/week12.md
+          - Tuần 13 · RTOS cơ bản: courses/embedded-systems/microcontroller/weeks/week13.md
+          - Tuần 14 · Mini Project: courses/embedded-systems/microcontroller/weeks/week14.md
+          - Tuần 15 · Demo & Review: courses/embedded-systems/microcontroller/weeks/week15.md
+  - Microelectronics:
+      - Tổng quan: courses/microelectronics/index.md
+  - IC Design:
+      - Tổng quan: courses/ic-design/index.md
+  - Resources:
+      - Tổng quan: resources/index.md
+      - Software: resources/software.md
+      - Datasheets: resources/datasheets.md
+      - Source Code: resources/source-code.md
+      - Learning Tools: resources/learning-tools.md
+  - About: about.md
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - def_list
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra_javascript:
+  - assets/javascripts/extra.js
+
+extra:
+  generator: false
+
+copyright: © 2026 Huynh Cong Tu · Learning Hub
