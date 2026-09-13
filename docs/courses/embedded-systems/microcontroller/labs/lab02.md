@@ -70,6 +70,42 @@ Biến tín hiệu nút cơ có dội thành một sự kiện nhấn ổn đị
 1. Vì sao 20 ms không đúng cho mọi nút?
 2. Phân biệt state và event.
 
+
+## Code tham chiếu
+
+<div class="hct-code-actions">
+
+[💻 Xem project trên GitHub](https://github.com/Huynhcongtu/hct-learning-hub/tree/main/code/labs/L02_Button){ .md-button .md-button--primary }
+[⬇️ Mở main.c](https://raw.githubusercontent.com/Huynhcongtu/hct-learning-hub/main/code/labs/L02_Button/main.c){ .md-button }
+
+</div>
+
+```c
+#include "common.h"
+#include "delay.h"
+PIN(LED,P1,0); PIN(KEY,P3,2);
+void main(void) {
+    u8 stable=1,candidate=1,sample,count=0;
+    EA=0; LED=1; KEY=1;
+    for (;;) {
+        sample=KEY;
+        if(sample!=candidate) { candidate=sample; count=0; }
+        else if(count<4) {
+            ++count;
+            if(count==4 && stable!=candidate) {
+                stable=candidate;
+                if(stable==0) LED=!LED;
+            }
+        }
+        delay_ms(5); /* about 20 ms stable, both press and release */
+    }
+}
+```
+
+!!! note "Nguồn"
+    Đây là chương trình tham chiếu **SOURCE** từ sổ tay thực hành.
+    Các header cần thiết được đặt cùng thư mục project để đúng quy ước mỗi bài là một target riêng.
+
 ## Bằng chứng nộp
 
 - source C + header;

@@ -69,6 +69,37 @@
     - Nếu có mô phỏng, lưu ảnh có nhãn và đơn vị.
     - Không dùng số dự kiến thay số đo.
 
+
+## Code minh họa
+
+<div class="hct-code-actions">
+
+[💻 Xem project trên GitHub](https://github.com/Huynhcongtu/hct-learning-hub/tree/main/code/theory/W03_CODE_DATA_Addressing){ .md-button .md-button--primary }
+[⬇️ Mở main.c](https://raw.githubusercontent.com/Huynhcongtu/hct-learning-hub/main/code/theory/W03_CODE_DATA_Addressing/main.c){ .md-button }
+
+</div>
+
+```c
+#include "common.h"
+
+u8 ROM seven_seg[4] = {0xC0, 0xF9, 0xA4, 0xB0};
+
+void main(void) {
+    u8 index = 0;
+    u8 value;
+
+    for (;;) {
+        value = seven_seg[index]; /* constant table: CODE on Keil C51 */
+        P2 = value;
+        index = (index + 1u) & 3u;
+    }
+}
+```
+
+!!! info
+    Code ở mục này là **SUPPLEMENTAL**: ví dụ bổ sung theo nội dung buổi học,
+    không phải đoạn mã nguyên văn của giáo trình.
+
 ## Checklist
 
 - [ ] Đọc phần được giao

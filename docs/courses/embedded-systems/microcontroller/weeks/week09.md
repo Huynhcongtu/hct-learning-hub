@@ -63,6 +63,57 @@
     - Nếu có mô phỏng, lưu ảnh có nhãn và đơn vị.
     - Không dùng số dự kiến thay số đo.
 
+
+## Code minh họa
+
+<div class="hct-code-actions">
+
+[💻 Xem project trên GitHub](https://github.com/Huynhcongtu/hct-learning-hub/tree/main/code/theory/W09_Shared_Data_ISR){ .md-button .md-button--primary }
+[⬇️ Mở main.c](https://raw.githubusercontent.com/Huynhcongtu/hct-learning-hub/main/code/theory/W09_Shared_Data_ISR/main.c){ .md-button }
+
+</div>
+
+```c
+#include "common.h"
+
+volatile u16 tick=0;
+
+void timer0_isr(void) ISR(1) {
+    TH0=0xFC; TL0=0x66;
+    ++tick;
+}
+
+static u16 tick_snapshot(void) {
+    u8 old_ea=EA;
+    u16 copy;
+
+    EA=0;
+    copy=tick;
+    EA=old_ea;
+
+    return copy;
+}
+
+void main(void) {
+    u16 t;
+
+    EA=0;
+    TMOD=(TMOD&0xF0)|1;
+    TH0=0xFC; TL0=0x66;
+    ET0=1; EA=1; TR0=1;
+
+    for (;;) {
+        t=tick_snapshot();
+        P1=(u8)t;
+        P2=(u8)(t>>8);
+    }
+}
+```
+
+!!! info
+    Code ở mục này là **SUPPLEMENTAL**: ví dụ bổ sung theo nội dung buổi học,
+    không phải đoạn mã nguyên văn của giáo trình.
+
 ## Checklist
 
 - [ ] Đọc phần được giao

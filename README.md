@@ -1,4 +1,15 @@
-# HUYNH CONG TU Learning Hub v1.0
+# HUYNH CONG TU Learning Hub v1.3 Code Examples
+
+**Embedded Systems • Microelectronics • IC Design**
+
+Phiên bản v1.3 bổ sung hệ thống source code cho khóa **Kỹ thuật Vi điều khiển — 8051 / AT89S52**.
+
+- 15 buổi lý thuyết minh họa.
+- 10 Lab SOURCE.
+- 3 extension/project.
+- 4 common headers.
+- Code hiển thị trực tiếp trên page và browse được trên GitHub.
+- Kế thừa toàn bộ hình minh họa của v1.2.1.
 
 Template dùng **MkDocs Material + GitHub Pages**.
 

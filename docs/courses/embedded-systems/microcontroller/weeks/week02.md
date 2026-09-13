@@ -78,6 +78,40 @@
     - Nếu có mô phỏng, lưu ảnh có nhãn và đơn vị.
     - Không dùng số dự kiến thay số đo.
 
+
+## Code minh họa
+
+<div class="hct-code-actions">
+
+[💻 Xem project trên GitHub](https://github.com/Huynhcongtu/hct-learning-hub/tree/main/code/theory/W02_Minimum_System_IO){ .md-button .md-button--primary }
+[⬇️ Mở main.c](https://raw.githubusercontent.com/Huynhcongtu/hct-learning-hub/main/code/theory/W02_Minimum_System_IO/main.c){ .md-button }
+
+</div>
+
+```c
+#include "common.h"
+
+PIN(LED, P1, 0);
+
+void main(void) {
+    EA = 0;
+    LED = 1; /* active-low LED: OFF */
+
+    for (;;) {
+        /* Hardware exercise:
+         * verify VCC, GND, EA, RST and clock before debugging code. */
+        LED = 0;
+        NOP(); NOP(); NOP();
+        LED = 1;
+        NOP(); NOP(); NOP();
+    }
+}
+```
+
+!!! info
+    Code ở mục này là **SUPPLEMENTAL**: ví dụ bổ sung theo nội dung buổi học,
+    không phải đoạn mã nguyên văn của giáo trình.
+
 ## Checklist
 
 - [ ] Đọc phần được giao

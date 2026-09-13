@@ -3,3 +3,13 @@ site/
 __pycache__/
 .DS_Store
 Thumbs.db
+
+
+# Keil C51 generated files
+**/Objects/
+**/Listings/
+*.obj
+*.lst
+*.m51
+*.lnp
+*.uvgui.*

@@ -74,6 +74,47 @@
     - Nếu có mô phỏng, lưu ảnh có nhãn và đơn vị.
     - Không dùng số dự kiến thay số đo.
 
+
+## Code minh họa
+
+<div class="hct-code-actions">
+
+[💻 Xem project trên GitHub](https://github.com/Huynhcongtu/hct-learning-hub/tree/main/code/theory/W11_LCD_Keypad_Matrix_Data){ .md-button .md-button--primary }
+[⬇️ Mở main.c](https://raw.githubusercontent.com/Huynhcongtu/hct-learning-hub/main/code/theory/W11_LCD_Keypad_Matrix_Data/main.c){ .md-button }
+
+</div>
+
+```c
+#include "common.h"
+
+/* Data-only example for display-oriented lessons. */
+u8 ROM glyph_Q[8]={
+    0x3C,0x42,0x81,0x81,
+    0x91,0xA1,0x42,0xBC
+};
+
+u8 ROM keypad_map[16]={
+    '1','2','3','A',
+    '4','5','6','B',
+    '7','8','9','C',
+    '*','0','#','D'
+};
+
+void main(void) {
+    u8 i=0;
+
+    for (;;) {
+        P1=(u8)~glyph_Q[i];
+        P2=keypad_map[i & 15u];
+        i=(i+1u)&7u;
+    }
+}
+```
+
+!!! info
+    Code ở mục này là **SUPPLEMENTAL**: ví dụ bổ sung theo nội dung buổi học,
+    không phải đoạn mã nguyên văn của giáo trình.
+
 ## Checklist
 
 - [ ] Đọc phần được giao

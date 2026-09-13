@@ -66,6 +66,34 @@ Tạo 5 mức DAC, kiểm tra tầng I/V và tạo ramp/răng cưa bằng cập 
 1. Vì sao 255 không đúng 4 V?
 2. Tần số waveform phụ thuộc sample rate/N ra sao?
 
+
+## Code tham chiếu
+
+<div class="hct-code-actions">
+
+[💻 Xem project trên GitHub](https://github.com/Huynhcongtu/hct-learning-hub/tree/main/code/labs/L07_DAC0808){ .md-button .md-button--primary }
+[⬇️ Mở main.c](https://raw.githubusercontent.com/Huynhcongtu/hct-learning-hub/main/code/labs/L07_DAC0808/main.c){ .md-button }
+
+</div>
+
+```c
+#include "common.h"
+#include "delay.h"
+PIN(MODE_KEY,P3,2);
+u8 ROM levels[5]={0,64,128,192,255};
+void main(void) {
+    u8 i=0,d=0; EA=0; P1=0; MODE_KEY=1;
+    for (;;) {
+        if(MODE_KEY) { P1=levels[i]; delay_ms(1000); if(++i==5)i=0; }
+        else { P1=d++; delay_ms(1); }
+    }
+}
+```
+
+!!! note "Nguồn"
+    Đây là chương trình tham chiếu **SOURCE** từ sổ tay thực hành.
+    Các header cần thiết được đặt cùng thư mục project để đúng quy ước mỗi bài là một target riêng.
+
 ## Bằng chứng nộp
 
 - source C + header;

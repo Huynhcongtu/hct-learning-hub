@@ -71,6 +71,30 @@ Tạo project C51, dựng mạch tối thiểu, sinh HEX và quan sát cùng hà
 1. Vì sao delay đo được không tuyệt đối bằng tham số ms?
 2. Đổi clock trong Keil có làm thạch anh thật đổi không?
 
+
+## Code tham chiếu
+
+<div class="hct-code-actions">
+
+[💻 Xem project trên GitHub](https://github.com/Huynhcongtu/hct-learning-hub/tree/main/code/labs/L01_Blink){ .md-button .md-button--primary }
+[⬇️ Mở main.c](https://raw.githubusercontent.com/Huynhcongtu/hct-learning-hub/main/code/labs/L01_Blink/main.c){ .md-button }
+
+</div>
+
+```c
+#include "common.h"
+#include "delay.h"
+PIN(LED,P1,0);
+void main(void) {
+    EA=0; LED=1;
+    for (;;) { LED=0; delay_ms(500); LED=1; delay_ms(500); }
+}
+```
+
+!!! note "Nguồn"
+    Đây là chương trình tham chiếu **SOURCE** từ sổ tay thực hành.
+    Các header cần thiết được đặt cùng thư mục project để đúng quy ước mỗi bài là một target riêng.
+
 ## Bằng chứng nộp
 
 - source C + header;

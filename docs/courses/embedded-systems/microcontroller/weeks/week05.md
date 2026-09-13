@@ -75,6 +75,51 @@
     - Nếu có mô phỏng, lưu ảnh có nhãn và đơn vị.
     - Không dùng số dự kiến thay số đo.
 
+
+## Code minh họa
+
+<div class="hct-code-actions">
+
+[💻 Xem project trên GitHub](https://github.com/Huynhcongtu/hct-learning-hub/tree/main/code/theory/W05_GPIO_Debounce){ .md-button .md-button--primary }
+[⬇️ Mở main.c](https://raw.githubusercontent.com/Huynhcongtu/hct-learning-hub/main/code/theory/W05_GPIO_Debounce/main.c){ .md-button }
+
+</div>
+
+```c
+#include "common.h"
+#include "delay.h"
+
+PIN(LED,P1,0);
+PIN(KEY,P3,2);
+
+void main(void) {
+    u8 stable=1, candidate=1, sample, count=0;
+
+    EA=0; LED=1; KEY=1;
+
+    for (;;) {
+        sample=KEY;
+
+        if(sample!=candidate) {
+            candidate=sample;
+            count=0;
+        } else if(count<4) {
+            ++count;
+            if(count==4 && stable!=candidate) {
+                stable=candidate;
+                if(stable==0) LED=!LED;
+            }
+        }
+
+        delay_ms(5);
+    }
+}
+```
+
+!!! info
+    Code ở mục này là **SUPPLEMENTAL**: ví dụ bổ sung theo nội dung buổi học,
+    không phải đoạn mã nguyên văn của giáo trình.
+
 ## Checklist
 
 - [ ] Đọc phần được giao

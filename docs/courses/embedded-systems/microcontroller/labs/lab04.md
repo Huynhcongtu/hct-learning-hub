@@ -66,6 +66,33 @@ Khởi tạo LCD ổn định, gửi lệnh/dữ liệu theo hai nibble và xử
 1. Vì sao ô đen chưa chắc LCD hỏng?
 2. Khi nào nên đọc busy flag?
 
+
+## Code tham chiếu
+
+<div class="hct-code-actions">
+
+[💻 Xem project trên GitHub](https://github.com/Huynhcongtu/hct-learning-hub/tree/main/code/labs/L04_LCD){ .md-button .md-button--primary }
+[⬇️ Mở main.c](https://raw.githubusercontent.com/Huynhcongtu/hct-learning-hub/main/code/labs/L04_LCD/main.c){ .md-button }
+
+</div>
+
+```c
+#include "common.h"
+#include "delay.h"
+#include "lcd.h"
+void main(void) {
+    u8 n=0; EA=0; lcd_init(); lcd_cmd(0x80); lcd_puts("QNU 8051 LAB");
+    for (;;) {
+        lcd_cmd(0xC0); lcd_puts("COUNT="); lcd_u8_3(n++);
+        lcd_puts("       "); delay_ms(500);
+    }
+}
+```
+
+!!! note "Nguồn"
+    Đây là chương trình tham chiếu **SOURCE** từ sổ tay thực hành.
+    Các header cần thiết được đặt cùng thư mục project để đúng quy ước mỗi bài là một target riêng.
+
 ## Bằng chứng nộp
 
 - source C + header;

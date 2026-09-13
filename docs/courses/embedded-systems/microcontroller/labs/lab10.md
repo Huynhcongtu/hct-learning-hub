@@ -74,6 +74,37 @@ Thiết lập UART 9600 8N1, điều khiển LED bằng command, xử lý invali
 1. 20 byte mất tối thiểu bao lâu ở 9600 8N1?
 2. Vì sao invalid command phải giữ output?
 
+
+## Code tham chiếu
+
+<div class="hct-code-actions">
+
+[💻 Xem project trên GitHub](https://github.com/Huynhcongtu/hct-learning-hub/tree/main/code/labs/L10_UART){ .md-button .md-button--primary }
+[⬇️ Mở main.c](https://raw.githubusercontent.com/Huynhcongtu/hct-learning-hub/main/code/labs/L10_UART/main.c){ .md-button }
+
+</div>
+
+```c
+#include "common.h"
+#include "uart.h"
+PIN(LED,P1,0);
+void main(void) {
+    u8 c; EA=0; LED=1; uart_init();
+    uart_puts("QNU UART 9600 8N1\r\n");
+    for (;;) if(RI) {
+        c=SBUF; RI=0;
+        if(c=='1') { LED=0; uart_puts("ACK ON\r\n"); }
+        else if(c=='0') { LED=1; uart_puts("ACK OFF\r\n"); }
+        else if(c=='?') uart_puts(LED?"STATE=0\r\n":"STATE=1\r\n");
+        else if(c!='\r' && c!='\n')uart_puts("ERR\r\n");
+    }
+}
+```
+
+!!! note "Nguồn"
+    Đây là chương trình tham chiếu **SOURCE** từ sổ tay thực hành.
+    Các header cần thiết được đặt cùng thư mục project để đúng quy ước mỗi bài là một target riêng.
+
 ## Bằng chứng nộp
 
 - source C + header;

@@ -90,3 +90,18 @@
 .hct-gallery .hct-figure a { background:#fff; }
 .hct-gallery .hct-figure img { aspect-ratio:16/10; object-fit:contain; }
 @media screen and (max-width:600px) { .hct-gallery { grid-template-columns:1fr; } }
+
+
+/* v1.3 Code Examples */
+.hct-code-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin: .8rem 0 1rem;
+}
+.hct-code-actions .md-button {
+  margin: 0;
+}
+.md-typeset pre > code {
+  font-size: .78rem;
+}

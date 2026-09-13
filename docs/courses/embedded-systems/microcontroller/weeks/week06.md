@@ -69,6 +69,48 @@
     - Nếu có mô phỏng, lưu ảnh có nhãn và đơn vị.
     - Không dùng số dự kiến thay số đo.
 
+
+## Code minh họa
+
+<div class="hct-code-actions">
+
+[💻 Xem project trên GitHub](https://github.com/Huynhcongtu/hct-learning-hub/tree/main/code/theory/W06_Timer_UART_Init){ .md-button .md-button--primary }
+[⬇️ Mở main.c](https://raw.githubusercontent.com/Huynhcongtu/hct-learning-hub/main/code/theory/W06_Timer_UART_Init/main.c){ .md-button }
+
+</div>
+
+```c
+#include "common.h"
+#include "uart.h"
+
+PIN(HEARTBEAT,P1,0);
+
+void main(void) {
+    EA=0;
+    HEARTBEAT=1;
+
+    uart_init();
+    uart_puts("TIMER/UART READY\r\n");
+
+    /* Timer 0 mode 1, 1 ms nominal reload at 11.0592 MHz / 12T. */
+    TMOD=(TMOD & 0xF0)|0x01;
+    TH0=0xFC; TL0=0x66; TF0=0; TR0=1;
+
+    for (;;) {
+        if(TF0) {
+            TR0=0; TF0=0;
+            TH0=0xFC; TL0=0x66;
+            HEARTBEAT=!HEARTBEAT;
+            TR0=1;
+        }
+    }
+}
+```
+
+!!! info
+    Code ở mục này là **SUPPLEMENTAL**: ví dụ bổ sung theo nội dung buổi học,
+    không phải đoạn mã nguyên văn của giáo trình.
+
 ## Checklist
 
 - [ ] Đọc phần được giao

@@ -74,6 +74,49 @@ Khởi động chuyển đổi ADC, đọc dữ liệu, xử lý timeout và ki�
 1. Vì sao guard loop không phải timeout ms hiệu chuẩn?
 2. Nguồn sai số nhiệt độ gồm gì?
 
+
+## Code tham chiếu
+
+<div class="hct-code-actions">
+
+[💻 Xem project trên GitHub](https://github.com/Huynhcongtu/hct-learning-hub/tree/main/code/labs/L06_ADC_LM35){ .md-button .md-button--primary }
+[⬇️ Mở main.c](https://raw.githubusercontent.com/Huynhcongtu/hct-learning-hub/main/code/labs/L06_ADC_LM35/main.c){ .md-button }
+
+</div>
+
+```c
+#include "common.h"
+#include "delay.h"
+#include "lcd.h"
+PIN(ADC_RD,P3,6); PIN(ADC_WR,P3,7); PIN(ADC_INTR,P3,2);
+static u8 adc_read(u8 *value) {
+    u16 guard=50000u;
+    P1=0xFF; ADC_RD=1; ADC_WR=0; NOP(); NOP(); ADC_WR=1;
+    while(ADC_INTR && --guard) { }
+    if(ADC_INTR) return 0;
+    ADC_RD=0; NOP(); NOP(); *value=P1; ADC_RD=1;
+    return 1;
+}
+void main(void) {
+    u8 raw;
+    EA=0; P1=0xFF; ADC_RD=1; ADC_WR=1; ADC_INTR=1;
+    lcd_init(); lcd_cmd(0x80); lcd_puts("LM35 VFS=2.56V");
+    for (;;) {
+        if(adc_read(&raw)) {
+            lcd_cmd(0xC0); lcd_puts("TEMP="); lcd_u8_3(raw);
+            lcd_puts(" C      ");
+        } else {
+            lcd_cmd(0xC0); lcd_puts("ADC TIMEOUT     ");
+        }
+        delay_ms(200);
+    }
+}
+```
+
+!!! note "Nguồn"
+    Đây là chương trình tham chiếu **SOURCE** từ sổ tay thực hành.
+    Các header cần thiết được đặt cùng thư mục project để đúng quy ước mỗi bài là một target riêng.
+
 ## Bằng chứng nộp
 
 - source C + header;

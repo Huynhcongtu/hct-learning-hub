@@ -62,6 +62,44 @@
     - Nếu có mô phỏng, lưu ảnh có nhãn và đơn vị.
     - Không dùng số dự kiến thay số đo.
 
+
+## Code minh họa
+
+<div class="hct-code-actions">
+
+[💻 Xem project trên GitHub](https://github.com/Huynhcongtu/hct-learning-hub/tree/main/code/theory/W04_C51_Build_Types){ .md-button .md-button--primary }
+[⬇️ Mở main.c](https://raw.githubusercontent.com/Huynhcongtu/hct-learning-hub/main/code/theory/W04_C51_Build_Types/main.c){ .md-button }
+
+</div>
+
+```c
+#include "common.h"
+
+typedef struct {
+    u8 input;
+    u8 output;
+} sample_t;
+
+static u8 transform(u8 x) {
+    return (u8)((x ^ 0x0Fu) | 0x80u);
+}
+
+void main(void) {
+    sample_t s;
+    s.input = 0x35u;
+    s.output = transform(s.input);
+
+    P1 = s.input;
+    P2 = s.output;
+
+    for (;;) { }
+}
+```
+
+!!! info
+    Code ở mục này là **SUPPLEMENTAL**: ví dụ bổ sung theo nội dung buổi học,
+    không phải đoạn mã nguyên văn của giáo trình.
+
 ## Checklist
 
 - [ ] Đọc phần được giao

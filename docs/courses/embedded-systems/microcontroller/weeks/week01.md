@@ -80,6 +80,42 @@
     - Nếu có mô phỏng, lưu ảnh có nhãn và đơn vị.
     - Không dùng số dự kiến thay số đo.
 
+
+## Code minh họa
+
+<div class="hct-code-actions">
+
+[💻 Xem project trên GitHub](https://github.com/Huynhcongtu/hct-learning-hub/tree/main/code/theory/W01_Bit_Data_CPU){ .md-button .md-button--primary }
+[⬇️ Mở main.c](https://raw.githubusercontent.com/Huynhcongtu/hct-learning-hub/main/code/theory/W01_Bit_Data_CPU/main.c){ .md-button }
+
+</div>
+
+```c
+#include "common.h"
+
+/* Supplemental example: bit masking and data interpretation. */
+static u8 set_bit1_clear_bit6(u8 x) {
+    x &= (u8)~0x40u;
+    x |= 0x02u;
+    return x;
+}
+
+void main(void) {
+    u8 x = 0xCDu;
+    u8 y = set_bit1_clear_bit6(x);
+
+    /* Put values on ports so they can be inspected in simulator. */
+    P1 = x;
+    P2 = y;
+
+    for (;;) { }
+}
+```
+
+!!! info
+    Code ở mục này là **SUPPLEMENTAL**: ví dụ bổ sung theo nội dung buổi học,
+    không phải đoạn mã nguyên văn của giáo trình.
+
 ## Checklist
 
 - [ ] Đọc phần được giao

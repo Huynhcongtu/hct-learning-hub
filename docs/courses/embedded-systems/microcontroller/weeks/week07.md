@@ -77,6 +77,38 @@
     - Nếu có mô phỏng, lưu ảnh có nhãn và đơn vị.
     - Không dùng số dự kiến thay số đo.
 
+
+## Code minh họa
+
+<div class="hct-code-actions">
+
+[💻 Xem project trên GitHub](https://github.com/Huynhcongtu/hct-learning-hub/tree/main/code/theory/W07_Timer_Baud_Calculation){ .md-button .md-button--primary }
+[⬇️ Mở main.c](https://raw.githubusercontent.com/Huynhcongtu/hct-learning-hub/main/code/theory/W07_Timer_Baud_Calculation/main.c){ .md-button }
+
+</div>
+
+```c
+#include "common.h"
+
+/* Constants are derived for 11.0592 MHz, classic 12T. */
+#define T0_1MS_H 0xFCu
+#define T0_1MS_L 0x66u
+#define UART_9600_TH1 0xFDu
+
+void main(void) {
+    P1 = T0_1MS_H;
+    P2 = T0_1MS_L;
+    P3 = UART_9600_TH1;
+
+    /* Exercise: derive constants again if Fosc changes. */
+    for (;;) { }
+}
+```
+
+!!! info
+    Code ở mục này là **SUPPLEMENTAL**: ví dụ bổ sung theo nội dung buổi học,
+    không phải đoạn mã nguyên văn của giáo trình.
+
 ## Checklist
 
 - [ ] Đọc phần được giao

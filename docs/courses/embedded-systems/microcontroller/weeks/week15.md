@@ -66,6 +66,49 @@
     - Nếu có mô phỏng, lưu ảnh có nhãn và đơn vị.
     - Không dùng số dự kiến thay số đo.
 
+
+## Code minh họa
+
+<div class="hct-code-actions">
+
+[💻 Xem project trên GitHub](https://github.com/Huynhcongtu/hct-learning-hub/tree/main/code/theory/W15_Portable_Test_Cases){ .md-button .md-button--primary }
+[⬇️ Mở main.c](https://raw.githubusercontent.com/Huynhcongtu/hct-learning-hub/main/code/theory/W15_Portable_Test_Cases/main.c){ .md-button }
+
+</div>
+
+```c
+#include "common.h"
+
+typedef struct {
+    u8 input;
+    u8 expected;
+} test_case_t;
+
+test_case_t ROM cases[]={
+    {35u,0u},
+    {42u,1u},
+    {40u,1u},
+    {38u,0u}
+};
+
+void main(void) {
+    u8 i;
+
+    /* The table is deliberately platform-independent:
+     * the same functional cases can be reused after porting to another MCU. */
+    for(i=0;i<4u;i++) {
+        P1=cases[i].input;
+        P2=cases[i].expected;
+    }
+
+    for (;;) { }
+}
+```
+
+!!! info
+    Code ở mục này là **SUPPLEMENTAL**: ví dụ bổ sung theo nội dung buổi học,
+    không phải đoạn mã nguyên văn của giáo trình.
+
 ## Checklist
 
 - [ ] Đọc phần được giao

@@ -70,6 +70,51 @@
     - Nếu có mô phỏng, lưu ảnh có nhãn và đơn vị.
     - Không dùng số dự kiến thay số đo.
 
+
+## Code minh họa
+
+<div class="hct-code-actions">
+
+[💻 Xem project trên GitHub](https://github.com/Huynhcongtu/hct-learning-hub/tree/main/code/theory/W12_I2C_OpenDrain){ .md-button .md-button--primary }
+[⬇️ Mở main.c](https://raw.githubusercontent.com/Huynhcongtu/hct-learning-hub/main/code/theory/W12_I2C_OpenDrain/main.c){ .md-button }
+
+</div>
+
+```c
+#include "common.h"
+
+PIN(SDA,P1,0);
+PIN(SCL,P1,1);
+
+static void i2c_delay(void) {
+    NOP(); NOP(); NOP(); NOP();
+}
+
+static void i2c_start(void) {
+    SDA=1; SCL=1; i2c_delay();
+    SDA=0; i2c_delay();
+    SCL=0;
+}
+
+static void i2c_stop(void) {
+    SDA=0; SCL=1; i2c_delay();
+    SDA=1; i2c_delay();
+}
+
+void main(void) {
+    SDA=1; SCL=1;
+
+    for (;;) {
+        i2c_start();
+        i2c_stop();
+    }
+}
+```
+
+!!! info
+    Code ở mục này là **SUPPLEMENTAL**: ví dụ bổ sung theo nội dung buổi học,
+    không phải đoạn mã nguyên văn của giáo trình.
+
 ## Checklist
 
 - [ ] Đọc phần được giao
