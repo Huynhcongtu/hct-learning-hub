@@ -1,102 +1,68 @@
-# TUẦN 15 — Demo & Review
+# BUỔI 15 — Ôn tập & bài tập tổng hợp
 
-**Demo, Verification & Reflection**
+**Đọc trước:** Giáo trình trang **61–63**
 
 <div class="week-meta">
-<div><small>Mục tiêu tuần</small><strong>Trình bày và kiểm chứng</strong></div>
-<div><small>Minh chứng</small><strong>Verification checklist</strong></div>
-<div><small>Lab focus</small><strong>Final demo</strong></div>
+<div><small>Track</small><strong>Lý thuyết</strong></div>
+<div><small>Platform</small><strong>8051 / AT89S52</strong></div>
+<div><small>Workflow</small><strong>PRE → LEC → CALC → VERIFY</strong></div>
 </div>
 
-## Learning Outcomes
+## Mục tiêu
 
-Sau tuần này, sinh viên có thể:
+- Kết nối kiến thức số, timer, UART, ADC/DAC và state machine.
+- Giải bài có phép tính rõ từng bước.
+- Thiết kế hệ nhỏ kèm bộ test.
+- Tự đánh giá bằng bằng chứng thay vì số dòng code.
 
-- Giải thích khái niệm cốt lõi của **Demo & Review**.
-- Đọc sơ đồ / dữ liệu liên quan và xác định tham số quan trọng.
-- Triển khai một ví dụ tối thiểu có thể kiểm chứng.
-- Ghi lại kết quả và giải thích sai khác giữa kỳ vọng và thực tế.
+=== "PRE · Đọc trước"
 
-=== "PRE · Chuẩn bị"
+    1. Đọc trang **61–63**.
+    2. Gạch chân thanh ghi / khái niệm mới.
+    3. Tự làm ví dụ trước khi xem kết quả.
+    4. Viết **01 câu hỏi** mang đến lớp.
 
-    ## Before class
+=== "LEC · Nội dung cốt lõi"
 
-    - Đọc khái niệm chính.
-    - Ghi lại thuật ngữ kỹ thuật.
-    - Xem sơ đồ khối / timing diagram.
-    - Đọc đúng phần datasheet cần thiết.
+    ### Nhóm bài tính
+    - Chuyển đổi số và bit operations.
+    - Reload Timer.
+    - Baud rate và thời gian truyền.
+    - ADC0804 + LM35.
+    - DAC0808 và tần số waveform.
 
-    !!! question "Self-check"
-        Viết **01 câu hỏi** mà bạn muốn được giải đáp trên lớp.
+    ### Nhóm bài thiết kế
+    - Bộ đếm nút 00–99 với debounce.
+    - PWM 20 bước.
+    - Hệ đo nhiệt độ có timeout và vẫn phục vụ UART.
+    - Phân bổ tài nguyên và thiết kế test.
 
-=== "LEC · Bài giảng"
+    ### Chuyển sang MCU hiện đại
+    Signal, state machine, timing, debounce, timeout và verification vẫn giữ giá trị. GPIO, clock, voltage, peripheral và register phải đọc lại cho nền tảng mới.
 
-    1. Mô hình và nguyên lý.
-    2. Tham số cấu hình.
-    3. Trình tự khởi tạo.
-    4. Ví dụ code tối thiểu.
-    5. Lỗi thường gặp.
-    6. Cách kiểm chứng output.
+=== "ACT · Hoạt động trên lớp"
 
-=== "SIM · Mô phỏng"
+    **Bài toán:** Chọn một bài đã làm và viết lại specification + test cases độc lập với 8051 để có thể port sang MCU khác.
 
-    **Mục tiêu:** quan sát hành vi trước khi chạy phần cứng.
+    Yêu cầu: ghi rõ giả thiết, đơn vị, sơ đồ/timeline và cách kiểm chứng.
 
-    Ghi nhận:
+=== "SELF-CHECK"
 
-    - input,
-    - expected output,
-    - observed output,
-    - nhận xét.
+    1. Điều gì giữ nguyên khi chuyển 8051 sang STM32/AVR?
+    2. Điều gì không được copy nguyên xi?
+    3. Thiết kế tốt cần minh chứng gì ngoài source code?
 
-=== "LAB · Thực hành"
+=== "AFTER · Sau lớp"
 
-    ## LAB 15
-
-    **Nhiệm vụ:** Final demo
-
-    1. Kiểm tra wiring / pin mapping.
-    2. Mở starter project.
-    3. Cấu hình peripheral.
-    4. Build.
-    5. Flash firmware.
-    6. Quan sát output.
-    7. Thay đổi một tham số và giải thích kết quả.
-
-    ```c
-    int main(void)
-    {
-        // TODO: init hardware
-
-        while (1)
-        {
-            // TODO: application loop
-        }
-    }
-    ```
-
-=== "QUIZ · Tự kiểm tra"
-
-    [Mở Quiz tuần 15](https://forms.google.com/){ .md-button .md-button--primary }
-
-    Gợi ý: câu hỏi khái niệm, timing, chẩn đoán lỗi và dự đoán output.
-
-=== "ASG · Bài tập"
-
-    Nộp một **engineering note** ngắn gồm:
-
-    - Mục tiêu.
-    - Sơ đồ / cấu hình.
-    - Code quan trọng.
-    - Minh chứng output.
-    - Một lỗi đã gặp và cách xử lý.
-    - Kết luận.
+    - Hoàn thành engineering note ngắn.
+    - Ghi điều đã hiểu, phép tính đã làm và câu hỏi còn vướng.
+    - Nếu có mô phỏng, lưu ảnh có nhãn và đơn vị.
+    - Không dùng số dự kiến thay số đo.
 
 ## Checklist
 
-- [ ] PRE
-- [ ] LEC
-- [ ] SIM
-- [ ] LAB
-- [ ] QUIZ
-- [ ] ASG
+- [ ] Đọc phần được giao
+- [ ] Làm phép tính / self-check
+- [ ] Có ít nhất một câu hỏi
+- [ ] Hoàn thành hoạt động
+- [ ] Lưu bằng chứng

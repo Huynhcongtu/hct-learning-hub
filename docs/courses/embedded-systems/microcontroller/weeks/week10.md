@@ -1,102 +1,69 @@
-# TUẦN 10 — I²C
+# BUỔI 10 — Nguồn, bus & LED 7 đoạn
 
-**I²C Communication**
+**Đọc trước:** Giáo trình trang **21, 34–35, 52–53**
 
 <div class="week-meta">
-<div><small>Mục tiêu tuần</small><strong>Bus hai dây có địa chỉ</strong></div>
-<div><small>Minh chứng</small><strong>I²C transaction</strong></div>
-<div><small>Lab focus</small><strong>I²C sensor</strong></div>
+<div><small>Track</small><strong>Lý thuyết</strong></div>
+<div><small>Platform</small><strong>8051 / AT89S52</strong></div>
+<div><small>Workflow</small><strong>PRE → LEC → CALC → VERIFY</strong></div>
 </div>
 
-## Learning Outcomes
+## Mục tiêu
 
-Sau tuần này, sinh viên có thể:
+- Thiết kế LED theo cực tính và giới hạn dòng.
+- Tạo bảng mã 7 đoạn.
+- Giải thích multiplexing và ghosting.
+- Nhận biết xung đột tài nguyên/chân khi mở rộng hệ thống.
 
-- Giải thích khái niệm cốt lõi của **I²C**.
-- Đọc sơ đồ / dữ liệu liên quan và xác định tham số quan trọng.
-- Triển khai một ví dụ tối thiểu có thể kiểm chứng.
-- Ghi lại kết quả và giải thích sai khác giữa kỳ vọng và thực tế.
+=== "PRE · Đọc trước"
 
-=== "PRE · Chuẩn bị"
+    1. Đọc trang **21, 34–35, 52–53**.
+    2. Gạch chân thanh ghi / khái niệm mới.
+    3. Tự làm ví dụ trước khi xem kết quả.
+    4. Viết **01 câu hỏi** mang đến lớp.
 
-    ## Before class
+=== "LEC · Nội dung cốt lõi"
 
-    - Đọc khái niệm chính.
-    - Ghi lại thuật ngữ kỹ thuật.
-    - Xem sơ đồ khối / timing diagram.
-    - Đọc đúng phần datasheet cần thiết.
+    ### LED 7 đoạn
+    Bảy segment a–g tạo chữ số. Mã hiển thị phụ thuộc common-anode/common-cathode và ánh xạ bit.
 
-    !!! question "Self-check"
-        Viết **01 câu hỏi** mà bạn muốn được giải đáp trên lớp.
+    ### Multiplex
+    Bốn digit dùng chung bus segment. Trình tự an toàn:
 
-=== "LEC · Bài giảng"
-
-    1. Mô hình và nguyên lý.
-    2. Tham số cấu hình.
-    3. Trình tự khởi tạo.
-    4. Ví dụ code tối thiểu.
-    5. Lỗi thường gặp.
-    6. Cách kiểm chứng output.
-
-=== "SIM · Mô phỏng"
-
-    **Mục tiêu:** quan sát hành vi trước khi chạy phần cứng.
-
-    Ghi nhận:
-
-    - input,
-    - expected output,
-    - observed output,
-    - nhận xét.
-
-=== "LAB · Thực hành"
-
-    ## LAB 10
-
-    **Nhiệm vụ:** I²C sensor
-
-    1. Kiểm tra wiring / pin mapping.
-    2. Mở starter project.
-    3. Cấu hình peripheral.
-    4. Build.
-    5. Flash firmware.
-    6. Quan sát output.
-    7. Thay đổi một tham số và giải thích kết quả.
-
-    ```c
-    int main(void)
-    {
-        // TODO: init hardware
-
-        while (1)
-        {
-            // TODO: application loop
-        }
-    }
+    ```text
+    tắt tất cả digit
+    → đổi segment
+    → bật digit mới
     ```
 
-=== "QUIZ · Tự kiểm tra"
+    Làm ngược dễ gây **ghosting**.
 
-    [Mở Quiz tuần 10](https://forms.google.com/){ .md-button .md-button--primary }
+    ### Tài nguyên
+    Không chỉ kiểm tra “trùng chân”; còn phải kiểm tra trùng Timer, bus, ISR và giới hạn dòng.
 
-    Gợi ý: câu hỏi khái niệm, timing, chẩn đoán lỗi và dự đoán output.
+=== "ACT · Hoạt động trên lớp"
 
-=== "ASG · Bài tập"
+    **Bài toán:** Từ sơ đồ common-anode, xây bảng mã 0–9 và giải thích mẫu cho 0, 1, 8.
 
-    Nộp một **engineering note** ngắn gồm:
+    Yêu cầu: ghi rõ giả thiết, đơn vị, sơ đồ/timeline và cách kiểm chứng.
 
-    - Mục tiêu.
-    - Sơ đồ / cấu hình.
-    - Code quan trọng.
-    - Minh chứng output.
-    - Một lỗi đã gặp và cách xử lý.
-    - Kết luận.
+=== "SELF-CHECK"
+
+    1. Vì sao phải tắt digit cũ trước khi đổi segment?
+    2. Duty mỗi digit ảnh hưởng độ sáng thế nào?
+    3. Không trùng pin có chắc không trùng tài nguyên?
+
+=== "AFTER · Sau lớp"
+
+    - Hoàn thành engineering note ngắn.
+    - Ghi điều đã hiểu, phép tính đã làm và câu hỏi còn vướng.
+    - Nếu có mô phỏng, lưu ảnh có nhãn và đơn vị.
+    - Không dùng số dự kiến thay số đo.
 
 ## Checklist
 
-- [ ] PRE
-- [ ] LEC
-- [ ] SIM
-- [ ] LAB
-- [ ] QUIZ
-- [ ] ASG
+- [ ] Đọc phần được giao
+- [ ] Làm phép tính / self-check
+- [ ] Có ít nhất một câu hỏi
+- [ ] Hoàn thành hoạt động
+- [ ] Lưu bằng chứng

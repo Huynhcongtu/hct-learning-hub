@@ -1,102 +1,65 @@
-# TUẦN 14 — Mini Project
+# BUỔI 14 — Tích hợp dự án & kiểm thử
 
-**System Integration**
+**Đọc trước:** Giáo trình trang **54–60**
 
 <div class="week-meta">
-<div><small>Mục tiêu tuần</small><strong>Tích hợp hệ thống</strong></div>
-<div><small>Minh chứng</small><strong>System block diagram</strong></div>
-<div><small>Lab focus</small><strong>Project integration</strong></div>
+<div><small>Track</small><strong>Lý thuyết</strong></div>
+<div><small>Platform</small><strong>8051 / AT89S52</strong></div>
+<div><small>Workflow</small><strong>PRE → LEC → CALC → VERIFY</strong></div>
 </div>
 
-## Learning Outcomes
+## Mục tiêu
 
-Sau tuần này, sinh viên có thể:
+- Viết yêu cầu có thể kiểm thử.
+- Phân bổ pin, Timer, ISR và bus trước khi tích hợp.
+- Thiết kế test plan song song với chức năng.
+- Dùng hysteresis, watchdog và startup state hợp lý.
 
-- Giải thích khái niệm cốt lõi của **Mini Project**.
-- Đọc sơ đồ / dữ liệu liên quan và xác định tham số quan trọng.
-- Triển khai một ví dụ tối thiểu có thể kiểm chứng.
-- Ghi lại kết quả và giải thích sai khác giữa kỳ vọng và thực tế.
+=== "PRE · Đọc trước"
 
-=== "PRE · Chuẩn bị"
+    1. Đọc trang **54–60**.
+    2. Gạch chân thanh ghi / khái niệm mới.
+    3. Tự làm ví dụ trước khi xem kết quả.
+    4. Viết **01 câu hỏi** mang đến lớp.
 
-    ## Before class
+=== "LEC · Nội dung cốt lõi"
 
-    - Đọc khái niệm chính.
-    - Ghi lại thuật ngữ kỹ thuật.
-    - Xem sơ đồ khối / timing diagram.
-    - Đọc đúng phần datasheet cần thiết.
+    ### Hồ sơ thiết kế tối thiểu
+    - Bản yêu cầu: dải, đơn vị, timing, lỗi, startup.
+    - Sơ đồ phần cứng: nguồn, chân, cực tính, điểm đo.
+    - Kiến trúc phần mềm: module, state, scheduler, ownership.
+    - Kế hoạch test: input, expected, measured.
+    - Hồ sơ bàn giao: source, HEX, schematic, config, log.
 
-    !!! question "Self-check"
-        Viết **01 câu hỏi** mà bạn muốn được giải đáp trên lớp.
+    ### Thermostat mẫu
+    LM35 + ADC0804 + LCD + đầu ra mô phỏng quạt. Ví dụ dùng **42 °C bật / 38 °C tắt** để tránh chatter.
 
-=== "LEC · Bài giảng"
+    ### Watchdog
+    Watchdog chỉ có ý nghĩa khi phần mềm khỏe vẫn phục vụ nó; lỗi phần cứng có thể gây vòng reset lặp.
 
-    1. Mô hình và nguyên lý.
-    2. Tham số cấu hình.
-    3. Trình tự khởi tạo.
-    4. Ví dụ code tối thiểu.
-    5. Lỗi thường gặp.
-    6. Cách kiểm chứng output.
+=== "ACT · Hoạt động trên lớp"
 
-=== "SIM · Mô phỏng"
+    **Bài toán:** Lập resource allocation table cho ADC + LCD + UART + tải; tìm xung đột pin và Timer.
 
-    **Mục tiêu:** quan sát hành vi trước khi chạy phần cứng.
+    Yêu cầu: ghi rõ giả thiết, đơn vị, sơ đồ/timeline và cách kiểm chứng.
 
-    Ghi nhận:
+=== "SELF-CHECK"
 
-    - input,
-    - expected output,
-    - observed output,
-    - nhận xét.
+    1. Hysteresis giải quyết vấn đề gì?
+    2. Watchdog có thay timeout ngoại vi không?
+    3. Tại sao test plan nên viết trước khi hệ hoàn thành?
 
-=== "LAB · Thực hành"
+=== "AFTER · Sau lớp"
 
-    ## LAB 14
-
-    **Nhiệm vụ:** Project integration
-
-    1. Kiểm tra wiring / pin mapping.
-    2. Mở starter project.
-    3. Cấu hình peripheral.
-    4. Build.
-    5. Flash firmware.
-    6. Quan sát output.
-    7. Thay đổi một tham số và giải thích kết quả.
-
-    ```c
-    int main(void)
-    {
-        // TODO: init hardware
-
-        while (1)
-        {
-            // TODO: application loop
-        }
-    }
-    ```
-
-=== "QUIZ · Tự kiểm tra"
-
-    [Mở Quiz tuần 14](https://forms.google.com/){ .md-button .md-button--primary }
-
-    Gợi ý: câu hỏi khái niệm, timing, chẩn đoán lỗi và dự đoán output.
-
-=== "ASG · Bài tập"
-
-    Nộp một **engineering note** ngắn gồm:
-
-    - Mục tiêu.
-    - Sơ đồ / cấu hình.
-    - Code quan trọng.
-    - Minh chứng output.
-    - Một lỗi đã gặp và cách xử lý.
-    - Kết luận.
+    - Hoàn thành engineering note ngắn.
+    - Ghi điều đã hiểu, phép tính đã làm và câu hỏi còn vướng.
+    - Nếu có mô phỏng, lưu ảnh có nhãn và đơn vị.
+    - Không dùng số dự kiến thay số đo.
 
 ## Checklist
 
-- [ ] PRE
-- [ ] LEC
-- [ ] SIM
-- [ ] LAB
-- [ ] QUIZ
-- [ ] ASG
+- [ ] Đọc phần được giao
+- [ ] Làm phép tính / self-check
+- [ ] Có ít nhất một câu hỏi
+- [ ] Hoàn thành hoạt động
+- [ ] Lưu bằng chứng

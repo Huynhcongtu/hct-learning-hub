@@ -1,102 +1,63 @@
-# TUẦN 13 — RTOS cơ bản
+# BUỔI 13 — ADC, DAC & thiết kế ngoại vi
 
-**RTOS Fundamentals**
+**Đọc trước:** Giáo trình trang **40–45, 55–56**
 
 <div class="week-meta">
-<div><small>Mục tiêu tuần</small><strong>Tasks và scheduling</strong></div>
-<div><small>Minh chứng</small><strong>Task timeline</strong></div>
-<div><small>Lab focus</small><strong>Two-task demo</strong></div>
+<div><small>Track</small><strong>Lý thuyết</strong></div>
+<div><small>Platform</small><strong>8051 / AT89S52</strong></div>
+<div><small>Workflow</small><strong>PRE → LEC → CALC → VERIFY</strong></div>
 </div>
 
-## Learning Outcomes
+## Mục tiêu
 
-Sau tuần này, sinh viên có thể:
+- Giải thích sampling, quantization và reference.
+- Giao tiếp ADC0804 và xử lý timeout.
+- Tính chuyển đổi LM35.
+- Mô tả DAC0808 + tầng I/V và dạng sóng từ bảng mẫu.
 
-- Giải thích khái niệm cốt lõi của **RTOS cơ bản**.
-- Đọc sơ đồ / dữ liệu liên quan và xác định tham số quan trọng.
-- Triển khai một ví dụ tối thiểu có thể kiểm chứng.
-- Ghi lại kết quả và giải thích sai khác giữa kỳ vọng và thực tế.
+=== "PRE · Đọc trước"
 
-=== "PRE · Chuẩn bị"
+    1. Đọc trang **40–45, 55–56**.
+    2. Gạch chân thanh ghi / khái niệm mới.
+    3. Tự làm ví dụ trước khi xem kết quả.
+    4. Viết **01 câu hỏi** mang đến lớp.
 
-    ## Before class
+=== "LEC · Nội dung cốt lõi"
 
-    - Đọc khái niệm chính.
-    - Ghi lại thuật ngữ kỹ thuật.
-    - Xem sơ đồ khối / timing diagram.
-    - Đọc đúng phần datasheet cần thiết.
+    ### ADC0804
+    Chu kỳ: khởi động chuyển đổi → chờ INTR → đọc bus. Vòng chờ phải có timeout.
 
-    !!! question "Self-check"
-        Viết **01 câu hỏi** mà bạn muốn được giải đáp trên lớp.
+    Với `VREF/2 = 1.280 V`, toàn thang xấp xỉ 2.56 V. Ghép LM35 10 mV/°C tạo phép quy đổi thuận tiện trong bài.
 
-=== "LEC · Bài giảng"
+    ### DAC0808
+    DAC tạo dòng theo mã; op-amp I/V đổi dòng thành điện áp. Phải kiểm tra MSB/LSB, IREF, Rf, nguồn op-amp và dấu điện áp.
 
-    1. Mô hình và nguyên lý.
-    2. Tham số cấu hình.
-    3. Trình tự khởi tạo.
-    4. Ví dụ code tối thiểu.
-    5. Lỗi thường gặp.
-    6. Cách kiểm chứng output.
+    ### Waveform
+    Nếu bảng có N mẫu và cập nhật với tần số `fs`, tần số sóng xấp xỉ `fs/N`.
 
-=== "SIM · Mô phỏng"
+=== "ACT · Hoạt động trên lớp"
 
-    **Mục tiêu:** quan sát hành vi trước khi chạy phần cứng.
+    **Bài toán:** Tính mã ADC danh định ở 37 °C với full-scale 2.56 V; phân tích nguồn sai số.
 
-    Ghi nhận:
+    Yêu cầu: ghi rõ giả thiết, đơn vị, sơ đồ/timeline và cách kiểm chứng.
 
-    - input,
-    - expected output,
-    - observed output,
-    - nhận xét.
+=== "SELF-CHECK"
 
-=== "LAB · Thực hành"
+    1. VREF/2 có phải full-scale không?
+    2. Timeout ADC bảo vệ hệ thống khỏi lỗi gì?
+    3. Mã DAC 255 có đạt đúng 100% full-scale lý tưởng không?
 
-    ## LAB 13
+=== "AFTER · Sau lớp"
 
-    **Nhiệm vụ:** Two-task demo
-
-    1. Kiểm tra wiring / pin mapping.
-    2. Mở starter project.
-    3. Cấu hình peripheral.
-    4. Build.
-    5. Flash firmware.
-    6. Quan sát output.
-    7. Thay đổi một tham số và giải thích kết quả.
-
-    ```c
-    int main(void)
-    {
-        // TODO: init hardware
-
-        while (1)
-        {
-            // TODO: application loop
-        }
-    }
-    ```
-
-=== "QUIZ · Tự kiểm tra"
-
-    [Mở Quiz tuần 13](https://forms.google.com/){ .md-button .md-button--primary }
-
-    Gợi ý: câu hỏi khái niệm, timing, chẩn đoán lỗi và dự đoán output.
-
-=== "ASG · Bài tập"
-
-    Nộp một **engineering note** ngắn gồm:
-
-    - Mục tiêu.
-    - Sơ đồ / cấu hình.
-    - Code quan trọng.
-    - Minh chứng output.
-    - Một lỗi đã gặp và cách xử lý.
-    - Kết luận.
+    - Hoàn thành engineering note ngắn.
+    - Ghi điều đã hiểu, phép tính đã làm và câu hỏi còn vướng.
+    - Nếu có mô phỏng, lưu ảnh có nhãn và đơn vị.
+    - Không dùng số dự kiến thay số đo.
 
 ## Checklist
 
-- [ ] PRE
-- [ ] LEC
-- [ ] SIM
-- [ ] LAB
-- [ ] QUIZ
-- [ ] ASG
+- [ ] Đọc phần được giao
+- [ ] Làm phép tính / self-check
+- [ ] Có ít nhất một câu hỏi
+- [ ] Hoàn thành hoạt động
+- [ ] Lưu bằng chứng

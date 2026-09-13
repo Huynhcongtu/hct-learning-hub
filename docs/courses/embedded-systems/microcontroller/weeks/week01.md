@@ -1,102 +1,68 @@
-# TUẦN 01 — Tổng quan & kiến trúc MCU
+# BUỔI 01 — Hệ thống nhúng, hệ đếm & CPU
 
-**MCU Architecture**
+**Đọc trước:** Giáo trình trang **4–7**
 
 <div class="week-meta">
-<div><small>Mục tiêu tuần</small><strong>Nhận diện kiến trúc</strong></div>
-<div><small>Minh chứng</small><strong>Sơ đồ khối MCU</strong></div>
-<div><small>Lab focus</small><strong>LED/board bring-up</strong></div>
+<div><small>Track</small><strong>Lý thuyết</strong></div>
+<div><small>Platform</small><strong>8051 / AT89S52</strong></div>
+<div><small>Workflow</small><strong>PRE → LEC → CALC → VERIFY</strong></div>
 </div>
 
-## Learning Outcomes
+## Mục tiêu
 
-Sau tuần này, sinh viên có thể:
+- Phân biệt hệ thống nhúng với máy tính đa dụng.
+- Mô tả chuỗi Sensor → CPU/Memory → Actuator.
+- Chuyển đổi binary/hexadecimal và hiểu cùng mẫu bit có nhiều cách diễn giải.
+- Giải thích vai trò ALU, PC, thanh ghi, stack và không gian CODE/DATA.
 
-- Giải thích khái niệm cốt lõi của **Tổng quan & kiến trúc MCU**.
-- Đọc sơ đồ / dữ liệu liên quan và xác định tham số quan trọng.
-- Triển khai một ví dụ tối thiểu có thể kiểm chứng.
-- Ghi lại kết quả và giải thích sai khác giữa kỳ vọng và thực tế.
+=== "PRE · Đọc trước"
 
-=== "PRE · Chuẩn bị"
+    1. Đọc trang **4–7**.
+    2. Gạch chân thanh ghi / khái niệm mới.
+    3. Tự làm ví dụ trước khi xem kết quả.
+    4. Viết **01 câu hỏi** mang đến lớp.
 
-    ## Before class
+=== "LEC · Nội dung cốt lõi"
 
-    - Đọc khái niệm chính.
-    - Ghi lại thuật ngữ kỹ thuật.
-    - Xem sơ đồ khối / timing diagram.
-    - Đọc đúng phần datasheet cần thiết.
+    ### 1. Hệ thống nhúng và yêu cầu thời gian
+    Vi điều khiển đọc tín hiệu vào, xử lý theo quy tắc và tạo tín hiệu ra. Một kết quả tính đúng nhưng xuất quá muộn vẫn có thể là **sai hệ thống**.
 
-    !!! question "Self-check"
-        Viết **01 câu hỏi** mà bạn muốn được giải đáp trên lớp.
+    ### 2. Hệ đếm
+    Một byte có 8 bit. Hexadecimal gom 4 bit thành một chữ số, rất phù hợp khi đọc thanh ghi.
 
-=== "LEC · Bài giảng"
+    Ví dụ:
+    - `173 = 1010 1101₂ = 0xAD`.
+    - `0x31` có thể là số 49, ASCII `'1'` hoặc tám tín hiệu độc lập.
 
-    1. Mô hình và nguyên lý.
-    2. Tham số cấu hình.
-    3. Trình tự khởi tạo.
-    4. Ví dụ code tối thiểu.
-    5. Lỗi thường gặp.
-    6. Cách kiểm chứng output.
+    ### 3. Signed data
+    Bù hai 8 bit biểu diễn từ −128 đến 127. Mẫu `0xFB` có thể là 251 không dấu hoặc −5 có dấu.
 
-=== "SIM · Mô phỏng"
+    ### 4. CPU
+    8051 có A, B, DPTR, PSW, PC; chương trình nằm trong CODE, biến thay đổi nằm trong DATA/RAM.
 
-    **Mục tiêu:** quan sát hành vi trước khi chạy phần cứng.
+=== "ACT · Hoạt động trên lớp"
 
-    Ghi nhận:
+    **Bài toán:** Phân tích bộ đếm người ra/vào: input, output, thời gian đáp ứng, trạng thái lỗi.
 
-    - input,
-    - expected output,
-    - observed output,
-    - nhận xét.
+    Yêu cầu: ghi rõ giả thiết, đơn vị, sơ đồ/timeline và cách kiểm chứng.
 
-=== "LAB · Thực hành"
+=== "SELF-CHECK"
 
-    ## LAB 01
+    1. Vì sao LED sáng đúng nhưng chậm 3 s có thể vẫn là kết quả sai?
+    2. Khác nhau giữa `7`, `'7'` và chuỗi ký tự `"7"`?
+    3. PC khác biến đếm của người lập trình như thế nào?
 
-    **Nhiệm vụ:** LED/board bring-up
+=== "AFTER · Sau lớp"
 
-    1. Kiểm tra wiring / pin mapping.
-    2. Mở starter project.
-    3. Cấu hình peripheral.
-    4. Build.
-    5. Flash firmware.
-    6. Quan sát output.
-    7. Thay đổi một tham số và giải thích kết quả.
-
-    ```c
-    int main(void)
-    {
-        // TODO: init hardware
-
-        while (1)
-        {
-            // TODO: application loop
-        }
-    }
-    ```
-
-=== "QUIZ · Tự kiểm tra"
-
-    [Mở Quiz tuần 01](https://forms.google.com/){ .md-button .md-button--primary }
-
-    Gợi ý: câu hỏi khái niệm, timing, chẩn đoán lỗi và dự đoán output.
-
-=== "ASG · Bài tập"
-
-    Nộp một **engineering note** ngắn gồm:
-
-    - Mục tiêu.
-    - Sơ đồ / cấu hình.
-    - Code quan trọng.
-    - Minh chứng output.
-    - Một lỗi đã gặp và cách xử lý.
-    - Kết luận.
+    - Hoàn thành engineering note ngắn.
+    - Ghi điều đã hiểu, phép tính đã làm và câu hỏi còn vướng.
+    - Nếu có mô phỏng, lưu ảnh có nhãn và đơn vị.
+    - Không dùng số dự kiến thay số đo.
 
 ## Checklist
 
-- [ ] PRE
-- [ ] LEC
-- [ ] SIM
-- [ ] LAB
-- [ ] QUIZ
-- [ ] ASG
+- [ ] Đọc phần được giao
+- [ ] Làm phép tính / self-check
+- [ ] Có ít nhất một câu hỏi
+- [ ] Hoàn thành hoạt động
+- [ ] Lưu bằng chứng

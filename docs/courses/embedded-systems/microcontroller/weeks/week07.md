@@ -1,102 +1,72 @@
-# TUẦN 07 — ADC
+# BUỔI 07 — Tính Timer & baud rate
 
-**Analog-to-Digital Conversion**
+**Đọc trước:** Giáo trình trang **25–26, 32**
 
 <div class="week-meta">
-<div><small>Mục tiêu tuần</small><strong>Lấy mẫu tín hiệu analog</strong></div>
-<div><small>Minh chứng</small><strong>ADC concept</strong></div>
-<div><small>Lab focus</small><strong>Analog sensor</strong></div>
+<div><small>Track</small><strong>Lý thuyết</strong></div>
+<div><small>Platform</small><strong>8051 / AT89S52</strong></div>
+<div><small>Workflow</small><strong>PRE → LEC → CALC → VERIFY</strong></div>
 </div>
 
-## Learning Outcomes
+## Mục tiêu
 
-Sau tuần này, sinh viên có thể:
+- Tính số count và reload từ yêu cầu thời gian.
+- Tính TH1 cho UART.
+- Ước lượng thời gian truyền chuỗi.
+- Đánh giá sai số do lượng tử thời gian và phần mềm.
 
-- Giải thích khái niệm cốt lõi của **ADC**.
-- Đọc sơ đồ / dữ liệu liên quan và xác định tham số quan trọng.
-- Triển khai một ví dụ tối thiểu có thể kiểm chứng.
-- Ghi lại kết quả và giải thích sai khác giữa kỳ vọng và thực tế.
+=== "PRE · Đọc trước"
 
-=== "PRE · Chuẩn bị"
+    1. Đọc trang **25–26, 32**.
+    2. Gạch chân thanh ghi / khái niệm mới.
+    3. Tự làm ví dụ trước khi xem kết quả.
+    4. Viết **01 câu hỏi** mang đến lớp.
 
-    ## Before class
+=== "LEC · Nội dung cốt lõi"
 
-    - Đọc khái niệm chính.
-    - Ghi lại thuật ngữ kỹ thuật.
-    - Xem sơ đồ khối / timing diagram.
-    - Đọc đúng phần datasheet cần thiết.
+    ### Timer 0 mode 1
+    Với `T_machine ≈ 1.085 µs`:
 
-    !!! question "Self-check"
-        Viết **01 câu hỏi** mà bạn muốn được giải đáp trên lớp.
-
-=== "LEC · Bài giảng"
-
-    1. Mô hình và nguyên lý.
-    2. Tham số cấu hình.
-    3. Trình tự khởi tạo.
-    4. Ví dụ code tối thiểu.
-    5. Lỗi thường gặp.
-    6. Cách kiểm chứng output.
-
-=== "SIM · Mô phỏng"
-
-    **Mục tiêu:** quan sát hành vi trước khi chạy phần cứng.
-
-    Ghi nhận:
-
-    - input,
-    - expected output,
-    - observed output,
-    - nhận xét.
-
-=== "LAB · Thực hành"
-
-    ## LAB 07
-
-    **Nhiệm vụ:** Analog sensor
-
-    1. Kiểm tra wiring / pin mapping.
-    2. Mở starter project.
-    3. Cấu hình peripheral.
-    4. Build.
-    5. Flash firmware.
-    6. Quan sát output.
-    7. Thay đổi một tham số và giải thích kết quả.
-
-    ```c
-    int main(void)
-    {
-        // TODO: init hardware
-
-        while (1)
-        {
-            // TODO: application loop
-        }
-    }
+    ```text
+    N ≈ T_required / T_machine
+    Reload = 65536 - N
     ```
 
-=== "QUIZ · Tự kiểm tra"
+    Ví dụ 1 ms cần xấp xỉ 922 count, reload gần `0xFC66`.
 
-    [Mở Quiz tuần 07](https://forms.google.com/){ .md-button .md-button--primary }
+    ### UART 9600
+    Với 11.0592 MHz, Timer 1 mode 2 và cấu hình chuẩn, `TH1 = 0xFD` là mốc cho 9600 baud.
 
-    Gợi ý: câu hỏi khái niệm, timing, chẩn đoán lỗi và dự đoán output.
+    ### Thời gian frame
+    8N1 dùng khoảng 10 bit cho mỗi byte. Ở 9600 baud:
 
-=== "ASG · Bài tập"
+    ```text
+    T_byte ≈ 10 / 9600 ≈ 1.042 ms
+    ```
 
-    Nộp một **engineering note** ngắn gồm:
+=== "ACT · Hoạt động trên lớp"
 
-    - Mục tiêu.
-    - Sơ đồ / cấu hình.
-    - Code quan trọng.
-    - Minh chứng output.
-    - Một lỗi đã gặp và cách xử lý.
-    - Kết luận.
+    **Bài toán:** Tính reload cho 10 ms; tính thời gian tối thiểu truyền 48 byte 8N1; trình bày bước tính.
+
+    Yêu cầu: ghi rõ giả thiết, đơn vị, sơ đồ/timeline và cách kiểm chứng.
+
+=== "SELF-CHECK"
+
+    1. Vì sao số đo ISR có thể dài hơn thời gian phần cứng tính từ reload?
+    2. Nếu clock đổi, TH1 có được giữ nguyên không?
+    3. 20 byte ở 9600 baud mất tối thiểu khoảng bao lâu?
+
+=== "AFTER · Sau lớp"
+
+    - Hoàn thành engineering note ngắn.
+    - Ghi điều đã hiểu, phép tính đã làm và câu hỏi còn vướng.
+    - Nếu có mô phỏng, lưu ảnh có nhãn và đơn vị.
+    - Không dùng số dự kiến thay số đo.
 
 ## Checklist
 
-- [ ] PRE
-- [ ] LEC
-- [ ] SIM
-- [ ] LAB
-- [ ] QUIZ
-- [ ] ASG
+- [ ] Đọc phần được giao
+- [ ] Làm phép tính / self-check
+- [ ] Có ít nhất một câu hỏi
+- [ ] Hoàn thành hoạt động
+- [ ] Lưu bằng chứng

@@ -1,102 +1,66 @@
-# TUẦN 02 — Môi trường phát triển & Embedded C
+# BUỔI 02 — Sơ đồ chân, mạch tối thiểu & bộ nhớ
 
-**Toolchain & Embedded C**
+**Đọc trước:** Giáo trình trang **8–10**
 
 <div class="week-meta">
-<div><small>Mục tiêu tuần</small><strong>Build/flash/debug</strong></div>
-<div><small>Minh chứng</small><strong>Code skeleton</strong></div>
-<div><small>Lab focus</small><strong>Build + flash + debug</strong></div>
+<div><small>Track</small><strong>Lý thuyết</strong></div>
+<div><small>Platform</small><strong>8051 / AT89S52</strong></div>
+<div><small>Workflow</small><strong>PRE → LEC → CALC → VERIFY</strong></div>
 </div>
 
-## Learning Outcomes
+## Mục tiêu
 
-Sau tuần này, sinh viên có thể:
+- Đọc sơ đồ chân AT89S52 PDIP40.
+- Giải thích nguồn, clock, reset và EA.
+- Phân biệt dung lượng Flash thực với không gian CODE.
+- Phân biệt truy cập trực tiếp SFR và truy cập gián tiếp RAM cao.
 
-- Giải thích khái niệm cốt lõi của **Môi trường phát triển & Embedded C**.
-- Đọc sơ đồ / dữ liệu liên quan và xác định tham số quan trọng.
-- Triển khai một ví dụ tối thiểu có thể kiểm chứng.
-- Ghi lại kết quả và giải thích sai khác giữa kỳ vọng và thực tế.
+=== "PRE · Đọc trước"
 
-=== "PRE · Chuẩn bị"
+    1. Đọc trang **8–10**.
+    2. Gạch chân thanh ghi / khái niệm mới.
+    3. Tự làm ví dụ trước khi xem kết quả.
+    4. Viết **01 câu hỏi** mang đến lớp.
 
-    ## Before class
+=== "LEC · Nội dung cốt lõi"
 
-    - Đọc khái niệm chính.
-    - Ghi lại thuật ngữ kỹ thuật.
-    - Xem sơ đồ khối / timing diagram.
-    - Đọc đúng phần datasheet cần thiết.
+    ### AT89S52 tham chiếu
+    AT89S52 tương thích tập lệnh 8051, có 8 KiB Flash, 256 byte RAM và Timer 2. Bài cốt lõi ưu tiên Timer 0/1 và GPIO để dễ chuyển đổi.
 
-    !!! question "Self-check"
-        Viết **01 câu hỏi** mà bạn muốn được giải đáp trên lớp.
+    ### Mạch tối thiểu
+    - VCC 40, GND 20.
+    - EA 31 lên VCC khi chạy Flash nội.
+    - XTAL1/XTAL2 dùng 11.0592 MHz.
+    - RST tích cực cao.
+    - Tụ 100 nF đặt gần VCC/GND.
 
-=== "LEC · Bài giảng"
+    ### Bộ nhớ
+    Không gian CODE có thể địa chỉ hóa 64 KiB nhưng Flash vật lý của AT89S52 chỉ 8 KiB.
+    Trong vùng 80H–FFH, truy cập trực tiếp chọn SFR; truy cập gián tiếp có thể chọn RAM cao trên S52.
 
-    1. Mô hình và nguyên lý.
-    2. Tham số cấu hình.
-    3. Trình tự khởi tạo.
-    4. Ví dụ code tối thiểu.
-    5. Lỗi thường gặp.
-    6. Cách kiểm chứng output.
+=== "ACT · Hoạt động trên lớp"
 
-=== "SIM · Mô phỏng"
+    **Bài toán:** VCC = 5 V nhưng LED không chạy và RST ≈ 5 V liên tục. Xác định thứ tự kiểm tra.
 
-    **Mục tiêu:** quan sát hành vi trước khi chạy phần cứng.
+    Yêu cầu: ghi rõ giả thiết, đơn vị, sơ đồ/timeline và cách kiểm chứng.
 
-    Ghi nhận:
+=== "SELF-CHECK"
 
-    - input,
-    - expected output,
-    - observed output,
-    - nhận xét.
+    1. P3.0/P3.1 còn là GPIO độc lập khi UART đang hoạt động không?
+    2. Vì sao 64 KiB CODE không có nghĩa chip có sẵn 64 KiB Flash?
+    3. Tại sao phải kiểm tra EA trước khi sửa code?
 
-=== "LAB · Thực hành"
+=== "AFTER · Sau lớp"
 
-    ## LAB 02
-
-    **Nhiệm vụ:** Build + flash + debug
-
-    1. Kiểm tra wiring / pin mapping.
-    2. Mở starter project.
-    3. Cấu hình peripheral.
-    4. Build.
-    5. Flash firmware.
-    6. Quan sát output.
-    7. Thay đổi một tham số và giải thích kết quả.
-
-    ```c
-    int main(void)
-    {
-        // TODO: init hardware
-
-        while (1)
-        {
-            // TODO: application loop
-        }
-    }
-    ```
-
-=== "QUIZ · Tự kiểm tra"
-
-    [Mở Quiz tuần 02](https://forms.google.com/){ .md-button .md-button--primary }
-
-    Gợi ý: câu hỏi khái niệm, timing, chẩn đoán lỗi và dự đoán output.
-
-=== "ASG · Bài tập"
-
-    Nộp một **engineering note** ngắn gồm:
-
-    - Mục tiêu.
-    - Sơ đồ / cấu hình.
-    - Code quan trọng.
-    - Minh chứng output.
-    - Một lỗi đã gặp và cách xử lý.
-    - Kết luận.
+    - Hoàn thành engineering note ngắn.
+    - Ghi điều đã hiểu, phép tính đã làm và câu hỏi còn vướng.
+    - Nếu có mô phỏng, lưu ảnh có nhãn và đơn vị.
+    - Không dùng số dự kiến thay số đo.
 
 ## Checklist
 
-- [ ] PRE
-- [ ] LEC
-- [ ] SIM
-- [ ] LAB
-- [ ] QUIZ
-- [ ] ASG
+- [ ] Đọc phần được giao
+- [ ] Làm phép tính / self-check
+- [ ] Có ít nhất một câu hỏi
+- [ ] Hoàn thành hoạt động
+- [ ] Lưu bằng chứng

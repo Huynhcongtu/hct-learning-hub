@@ -1,102 +1,64 @@
-# TUẦN 06 — PWM
+# BUỔI 06 — Timer & UART
 
-**Pulse Width Modulation**
+**Đọc trước:** Giáo trình trang **24–27, 31–33**
 
 <div class="week-meta">
-<div><small>Mục tiêu tuần</small><strong>Điều chế độ rộng xung</strong></div>
-<div><small>Minh chứng</small><strong>PWM waveform</strong></div>
-<div><small>Lab focus</small><strong>LED dimming / motor speed</strong></div>
+<div><small>Track</small><strong>Lý thuyết</strong></div>
+<div><small>Platform</small><strong>8051 / AT89S52</strong></div>
+<div><small>Workflow</small><strong>PRE → LEC → CALC → VERIFY</strong></div>
 </div>
 
-## Learning Outcomes
+## Mục tiêu
 
-Sau tuần này, sinh viên có thể:
+- Phân biệt timer và counter.
+- Cấu hình TMOD/TCON có thứ tự an toàn.
+- Giải thích Timer mode 1/mode 2.
+- Mô tả UART mode 1, SBUF, RI, TI và 8N1.
 
-- Giải thích khái niệm cốt lõi của **PWM**.
-- Đọc sơ đồ / dữ liệu liên quan và xác định tham số quan trọng.
-- Triển khai một ví dụ tối thiểu có thể kiểm chứng.
-- Ghi lại kết quả và giải thích sai khác giữa kỳ vọng và thực tế.
+=== "PRE · Đọc trước"
 
-=== "PRE · Chuẩn bị"
+    1. Đọc trang **24–27, 31–33**.
+    2. Gạch chân thanh ghi / khái niệm mới.
+    3. Tự làm ví dụ trước khi xem kết quả.
+    4. Viết **01 câu hỏi** mang đến lớp.
 
-    ## Before class
+=== "LEC · Nội dung cốt lõi"
 
-    - Đọc khái niệm chính.
-    - Ghi lại thuật ngữ kỹ thuật.
-    - Xem sơ đồ khối / timing diagram.
-    - Đọc đúng phần datasheet cần thiết.
+    ### Timer
+    Timer tăng theo nhịp nội; counter tăng theo xung ngoài. Cấu hình nên dừng timer, đặt mode, nạp giá trị, xóa cờ rồi mới chạy.
 
-    !!! question "Self-check"
-        Viết **01 câu hỏi** mà bạn muốn được giải đáp trên lớp.
+    ### Mode 1
+    16 bit, phù hợp khoảng thời gian dài hơn.
 
-=== "LEC · Bài giảng"
+    ### Mode 2
+    8 bit auto-reload, phù hợp tick định kỳ và nguồn baud.
 
-    1. Mô hình và nguyên lý.
-    2. Tham số cấu hình.
-    3. Trình tự khởi tạo.
-    4. Ví dụ code tối thiểu.
-    5. Lỗi thường gặp.
-    6. Cách kiểm chứng output.
+    ### UART
+    Mode 1 thường dùng khung 8N1. TXD/RXD là mức logic UART, **không nối trực tiếp RS-232 điện áp cao**.
 
-=== "SIM · Mô phỏng"
+=== "ACT · Hoạt động trên lớp"
 
-    **Mục tiêu:** quan sát hành vi trước khi chạy phần cứng.
+    **Bài toán:** Vẽ timeline một chu kỳ Timer và một frame UART 8N1, chỉ ra điểm cần đo.
 
-    Ghi nhận:
+    Yêu cầu: ghi rõ giả thiết, đơn vị, sơ đồ/timeline và cách kiểm chứng.
 
-    - input,
-    - expected output,
-    - observed output,
-    - nhận xét.
+=== "SELF-CHECK"
 
-=== "LAB · Thực hành"
+    1. Khác nhau giữa Timer mode 1 và mode 2?
+    2. RI/TI được dùng cho việc gì?
+    3. Vì sao UART logic 5 V không phải RS-232?
 
-    ## LAB 06
+=== "AFTER · Sau lớp"
 
-    **Nhiệm vụ:** LED dimming / motor speed
-
-    1. Kiểm tra wiring / pin mapping.
-    2. Mở starter project.
-    3. Cấu hình peripheral.
-    4. Build.
-    5. Flash firmware.
-    6. Quan sát output.
-    7. Thay đổi một tham số và giải thích kết quả.
-
-    ```c
-    int main(void)
-    {
-        // TODO: init hardware
-
-        while (1)
-        {
-            // TODO: application loop
-        }
-    }
-    ```
-
-=== "QUIZ · Tự kiểm tra"
-
-    [Mở Quiz tuần 06](https://forms.google.com/){ .md-button .md-button--primary }
-
-    Gợi ý: câu hỏi khái niệm, timing, chẩn đoán lỗi và dự đoán output.
-
-=== "ASG · Bài tập"
-
-    Nộp một **engineering note** ngắn gồm:
-
-    - Mục tiêu.
-    - Sơ đồ / cấu hình.
-    - Code quan trọng.
-    - Minh chứng output.
-    - Một lỗi đã gặp và cách xử lý.
-    - Kết luận.
+    - Hoàn thành engineering note ngắn.
+    - Ghi điều đã hiểu, phép tính đã làm và câu hỏi còn vướng.
+    - Nếu có mô phỏng, lưu ảnh có nhãn và đơn vị.
+    - Không dùng số dự kiến thay số đo.
 
 ## Checklist
 
-- [ ] PRE
-- [ ] LEC
-- [ ] SIM
-- [ ] LAB
-- [ ] QUIZ
-- [ ] ASG
+- [ ] Đọc phần được giao
+- [ ] Làm phép tính / self-check
+- [ ] Có ít nhất một câu hỏi
+- [ ] Hoàn thành hoạt động
+- [ ] Lưu bằng chứng

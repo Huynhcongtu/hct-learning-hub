@@ -1,102 +1,70 @@
-# TUẦN 05 — Timers
+# BUỔI 05 — C, GPIO & chống dội
 
-**Timers**
+**Đọc trước:** Giáo trình trang **17–23**
 
 <div class="week-meta">
-<div><small>Mục tiêu tuần</small><strong>Tạo sự kiện định kỳ</strong></div>
-<div><small>Minh chứng</small><strong>Timing diagram</strong></div>
-<div><small>Lab focus</small><strong>Periodic task</strong></div>
+<div><small>Track</small><strong>Lý thuyết</strong></div>
+<div><small>Platform</small><strong>8051 / AT89S52</strong></div>
+<div><small>Workflow</small><strong>PRE → LEC → CALC → VERIFY</strong></div>
 </div>
 
-## Learning Outcomes
+## Mục tiêu
 
-Sau tuần này, sinh viên có thể:
+- Khai báo chân theo chức năng và giữ nguyên bit không liên quan.
+- Giải thích quasi-bidirectional của port 8051.
+- Phân biệt input active-low với output active-low.
+- Thiết kế debounce theo trạng thái ổn định và sự kiện.
 
-- Giải thích khái niệm cốt lõi của **Timers**.
-- Đọc sơ đồ / dữ liệu liên quan và xác định tham số quan trọng.
-- Triển khai một ví dụ tối thiểu có thể kiểm chứng.
-- Ghi lại kết quả và giải thích sai khác giữa kỳ vọng và thực tế.
+=== "PRE · Đọc trước"
 
-=== "PRE · Chuẩn bị"
+    1. Đọc trang **17–23**.
+    2. Gạch chân thanh ghi / khái niệm mới.
+    3. Tự làm ví dụ trước khi xem kết quả.
+    4. Viết **01 câu hỏi** mang đến lớp.
 
-    ## Before class
+=== "LEC · Nội dung cốt lõi"
 
-    - Đọc khái niệm chính.
-    - Ghi lại thuật ngữ kỹ thuật.
-    - Xem sơ đồ khối / timing diagram.
-    - Đọc đúng phần datasheet cần thiết.
+    ### GPIO
+    8051 dùng cơ chế port khác MCU hiện đại. Để đọc một chân port quasi-bidirectional, phần mềm thường phải “thả” chân bằng cách ghi 1 trước.
 
-    !!! question "Self-check"
-        Viết **01 câu hỏi** mà bạn muốn được giải đáp trên lớp.
+    ### Bit operations
+    Dùng mask để tránh phá các chân khác:
+    - `x & mask` đọc.
+    - `x | mask` đặt bit.
+    - `x & ~mask` xóa bit.
 
-=== "LEC · Bài giảng"
+    ### Chống dội
+    Không đảo LED ở mọi vòng lặp khi nút đang giữ. Cần tách:
+    - trạng thái mẫu,
+    - candidate,
+    - stable state,
+    - sự kiện nhấn mới.
 
-    1. Mô hình và nguyên lý.
-    2. Tham số cấu hình.
-    3. Trình tự khởi tạo.
-    4. Ví dụ code tối thiểu.
-    5. Lỗi thường gặp.
-    6. Cách kiểm chứng output.
+    Một cấu hình thực hành dùng 4 mẫu × 5 ms ≈ 20 ms để xác nhận ổn định.
 
-=== "SIM · Mô phỏng"
+=== "ACT · Hoạt động trên lớp"
 
-    **Mục tiêu:** quan sát hành vi trước khi chạy phần cứng.
+    **Bài toán:** Thiết kế máy trạng thái nút nhấn sao cho giữ nút 3 s chỉ tạo một sự kiện.
 
-    Ghi nhận:
+    Yêu cầu: ghi rõ giả thiết, đơn vị, sơ đồ/timeline và cách kiểm chứng.
 
-    - input,
-    - expected output,
-    - observed output,
-    - nhận xét.
+=== "SELF-CHECK"
 
-=== "LAB · Thực hành"
+    1. Vì sao `P1 && 0x08` không kiểm tra riêng P1.3?
+    2. Giữ nút có nên tạo nhiều lần toggle?
+    3. Cửa sổ debounce có phải luôn đúng 20 ms?
 
-    ## LAB 05
+=== "AFTER · Sau lớp"
 
-    **Nhiệm vụ:** Periodic task
-
-    1. Kiểm tra wiring / pin mapping.
-    2. Mở starter project.
-    3. Cấu hình peripheral.
-    4. Build.
-    5. Flash firmware.
-    6. Quan sát output.
-    7. Thay đổi một tham số và giải thích kết quả.
-
-    ```c
-    int main(void)
-    {
-        // TODO: init hardware
-
-        while (1)
-        {
-            // TODO: application loop
-        }
-    }
-    ```
-
-=== "QUIZ · Tự kiểm tra"
-
-    [Mở Quiz tuần 05](https://forms.google.com/){ .md-button .md-button--primary }
-
-    Gợi ý: câu hỏi khái niệm, timing, chẩn đoán lỗi và dự đoán output.
-
-=== "ASG · Bài tập"
-
-    Nộp một **engineering note** ngắn gồm:
-
-    - Mục tiêu.
-    - Sơ đồ / cấu hình.
-    - Code quan trọng.
-    - Minh chứng output.
-    - Một lỗi đã gặp và cách xử lý.
-    - Kết luận.
+    - Hoàn thành engineering note ngắn.
+    - Ghi điều đã hiểu, phép tính đã làm và câu hỏi còn vướng.
+    - Nếu có mô phỏng, lưu ảnh có nhãn và đơn vị.
+    - Không dùng số dự kiến thay số đo.
 
 ## Checklist
 
-- [ ] PRE
-- [ ] LEC
-- [ ] SIM
-- [ ] LAB
-- [ ] QUIZ
-- [ ] ASG
+- [ ] Đọc phần được giao
+- [ ] Làm phép tính / self-check
+- [ ] Có ít nhất một câu hỏi
+- [ ] Hoàn thành hoạt động
+- [ ] Lưu bằng chứng

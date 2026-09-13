@@ -1,102 +1,71 @@
-# TUẦN 03 — GPIO
+# BUỔI 03 — RAM, clock & định địa chỉ
 
-**Digital I/O**
+**Đọc trước:** Giáo trình trang **11–13**
 
 <div class="week-meta">
-<div><small>Mục tiêu tuần</small><strong>Cấu hình input/output</strong></div>
-<div><small>Minh chứng</small><strong>GPIO truth table</strong></div>
-<div><small>Lab focus</small><strong>LED + push button</strong></div>
+<div><small>Track</small><strong>Lý thuyết</strong></div>
+<div><small>Platform</small><strong>8051 / AT89S52</strong></div>
+<div><small>Workflow</small><strong>PRE → LEC → CALC → VERIFY</strong></div>
 </div>
 
-## Learning Outcomes
+## Mục tiêu
 
-Sau tuần này, sinh viên có thể:
+- Mô tả RAM thấp, register banks, bit-addressable RAM, stack và SFR.
+- Tính thời gian từ clock 11.0592 MHz, lõi 12T.
+- Phân biệt immediate, direct, indirect, register và indexed addressing.
+- Đọc bảng mã từ CODE.
 
-- Giải thích khái niệm cốt lõi của **GPIO**.
-- Đọc sơ đồ / dữ liệu liên quan và xác định tham số quan trọng.
-- Triển khai một ví dụ tối thiểu có thể kiểm chứng.
-- Ghi lại kết quả và giải thích sai khác giữa kỳ vọng và thực tế.
+=== "PRE · Đọc trước"
 
-=== "PRE · Chuẩn bị"
+    1. Đọc trang **11–13**.
+    2. Gạch chân thanh ghi / khái niệm mới.
+    3. Tự làm ví dụ trước khi xem kết quả.
+    4. Viết **01 câu hỏi** mang đến lớp.
 
-    ## Before class
+=== "LEC · Nội dung cốt lõi"
 
-    - Đọc khái niệm chính.
-    - Ghi lại thuật ngữ kỹ thuật.
-    - Xem sơ đồ khối / timing diagram.
-    - Đọc đúng phần datasheet cần thiết.
+    ### RAM và stack
+    RAM thấp gồm register banks, vùng bit-addressable và vùng dữ liệu. Stack tăng về phía địa chỉ cao; stack bị ghi đè có thể làm chương trình quay về sai địa chỉ.
 
-    !!! question "Self-check"
-        Viết **01 câu hỏi** mà bạn muốn được giải đáp trên lớp.
+    ### Chu kỳ máy
+    Với cấu hình 12T:
 
-=== "LEC · Bài giảng"
-
-    1. Mô hình và nguyên lý.
-    2. Tham số cấu hình.
-    3. Trình tự khởi tạo.
-    4. Ví dụ code tối thiểu.
-    5. Lỗi thường gặp.
-    6. Cách kiểm chứng output.
-
-=== "SIM · Mô phỏng"
-
-    **Mục tiêu:** quan sát hành vi trước khi chạy phần cứng.
-
-    Ghi nhận:
-
-    - input,
-    - expected output,
-    - observed output,
-    - nhận xét.
-
-=== "LAB · Thực hành"
-
-    ## LAB 03
-
-    **Nhiệm vụ:** LED + push button
-
-    1. Kiểm tra wiring / pin mapping.
-    2. Mở starter project.
-    3. Cấu hình peripheral.
-    4. Build.
-    5. Flash firmware.
-    6. Quan sát output.
-    7. Thay đổi một tham số và giải thích kết quả.
-
-    ```c
-    int main(void)
-    {
-        // TODO: init hardware
-
-        while (1)
-        {
-            // TODO: application loop
-        }
-    }
+    ```text
+    f_machine = 11.0592 MHz / 12 = 921.6 kHz
+    T_machine ≈ 1.085 µs
     ```
 
-=== "QUIZ · Tự kiểm tra"
+    Không được đồng nhất “một lệnh” với “một chu kỳ máy”; phải đọc timing của lệnh.
 
-    [Mở Quiz tuần 03](https://forms.google.com/){ .md-button .md-button--primary }
+    ### Định địa chỉ
+    - Immediate: hằng nằm ngay trong lệnh.
+    - Direct: địa chỉ được ghi rõ.
+    - Indirect: địa chỉ nằm trong R0/R1/DPTR tùy lệnh.
+    - Indexed: thường dùng truy xuất bảng CODE.
 
-    Gợi ý: câu hỏi khái niệm, timing, chẩn đoán lỗi và dự đoán output.
+=== "ACT · Hoạt động trên lớp"
 
-=== "ASG · Bài tập"
+    **Bài toán:** Lập bảng phân biệt địa chỉ, nội dung địa chỉ và hằng số cho 5 câu lệnh mẫu.
 
-    Nộp một **engineering note** ngắn gồm:
+    Yêu cầu: ghi rõ giả thiết, đơn vị, sơ đồ/timeline và cách kiểm chứng.
 
-    - Mục tiêu.
-    - Sơ đồ / cấu hình.
-    - Code quan trọng.
-    - Minh chứng output.
-    - Một lỗi đã gặp và cách xử lý.
-    - Kết luận.
+=== "SELF-CHECK"
+
+    1. Stack tăng theo hướng nào?
+    2. Một delay mô phỏng sai clock sẽ sai điều gì?
+    3. MOVC phù hợp với dữ liệu loại nào?
+
+=== "AFTER · Sau lớp"
+
+    - Hoàn thành engineering note ngắn.
+    - Ghi điều đã hiểu, phép tính đã làm và câu hỏi còn vướng.
+    - Nếu có mô phỏng, lưu ảnh có nhãn và đơn vị.
+    - Không dùng số dự kiến thay số đo.
 
 ## Checklist
 
-- [ ] PRE
-- [ ] LEC
-- [ ] SIM
-- [ ] LAB
-- [ ] QUIZ
-- [ ] ASG
+- [ ] Đọc phần được giao
+- [ ] Làm phép tính / self-check
+- [ ] Có ít nhất một câu hỏi
+- [ ] Hoàn thành hoạt động
+- [ ] Lưu bằng chứng

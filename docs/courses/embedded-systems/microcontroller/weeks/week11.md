@@ -1,102 +1,62 @@
-# TUẦN 11 — Sensors
+# BUỔI 11 — LCD, keypad & LED matrix
 
-**Sensor Interfacing**
+**Đọc trước:** Giáo trình trang **36–39**
 
 <div class="week-meta">
-<div><small>Mục tiêu tuần</small><strong>Thu thập dữ liệu cảm biến</strong></div>
-<div><small>Minh chứng</small><strong>Data pipeline</strong></div>
-<div><small>Lab focus</small><strong>Sensor acquisition</strong></div>
+<div><small>Track</small><strong>Lý thuyết</strong></div>
+<div><small>Platform</small><strong>8051 / AT89S52</strong></div>
+<div><small>Workflow</small><strong>PRE → LEC → CALC → VERIFY</strong></div>
 </div>
 
-## Learning Outcomes
+## Mục tiêu
 
-Sau tuần này, sinh viên có thể:
+- Khởi tạo LCD 1602 chế độ 4 bit.
+- Giải thích DDRAM và RS/E/RW.
+- Quét keypad theo hàng/cột.
+- Tạo glyph 8×8 và quét LED matrix.
 
-- Giải thích khái niệm cốt lõi của **Sensors**.
-- Đọc sơ đồ / dữ liệu liên quan và xác định tham số quan trọng.
-- Triển khai một ví dụ tối thiểu có thể kiểm chứng.
-- Ghi lại kết quả và giải thích sai khác giữa kỳ vọng và thực tế.
+=== "PRE · Đọc trước"
 
-=== "PRE · Chuẩn bị"
+    1. Đọc trang **36–39**.
+    2. Gạch chân thanh ghi / khái niệm mới.
+    3. Tự làm ví dụ trước khi xem kết quả.
+    4. Viết **01 câu hỏi** mang đến lớp.
 
-    ## Before class
+=== "LEC · Nội dung cốt lõi"
 
-    - Đọc khái niệm chính.
-    - Ghi lại thuật ngữ kỹ thuật.
-    - Xem sơ đồ khối / timing diagram.
-    - Đọc đúng phần datasheet cần thiết.
+    ### LCD 1602
+    Chế độ 4 bit dùng D4–D7. Chuỗi khởi tạo phải đồng bộ giao diện trước khi gửi lệnh bình thường.
+    Trong lab mẫu, `RW = 0` và dùng delay thay vì đọc busy flag.
 
-    !!! question "Self-check"
-        Viết **01 câu hỏi** mà bạn muốn được giải đáp trên lớp.
+    ### Keypad
+    Quét từng hàng rồi đọc cột. Với bàn phím không diode, nhấn nhiều phím có thể tạo ghosting.
 
-=== "LEC · Bài giảng"
+    ### LED matrix
+    Một glyph 8×8 là tám byte. Mạch quét cần ánh xạ hàng/cột rõ, chỉ bật một hàng mỗi thời điểm và tắt hàng cũ trước khi đổi dữ liệu cột.
 
-    1. Mô hình và nguyên lý.
-    2. Tham số cấu hình.
-    3. Trình tự khởi tạo.
-    4. Ví dụ code tối thiểu.
-    5. Lỗi thường gặp.
-    6. Cách kiểm chứng output.
+=== "ACT · Hoạt động trên lớp"
 
-=== "SIM · Mô phỏng"
+    **Bài toán:** Tạo glyph chữ đầu tên nhóm và mô tả cách phát hiện ảnh bị lật ngang/dọc.
 
-    **Mục tiêu:** quan sát hành vi trước khi chạy phần cứng.
+    Yêu cầu: ghi rõ giả thiết, đơn vị, sơ đồ/timeline và cách kiểm chứng.
 
-    Ghi nhận:
+=== "SELF-CHECK"
 
-    - input,
-    - expected output,
-    - observed output,
-    - nhận xét.
+    1. Tại sao LCD có ô đen chưa chắc đã hỏng?
+    2. Ghosting keypad khác ghosting LED matrix ở điểm nào?
+    3. Tại sao kiểm tra một điểm trước khi bật cả matrix?
 
-=== "LAB · Thực hành"
+=== "AFTER · Sau lớp"
 
-    ## LAB 11
-
-    **Nhiệm vụ:** Sensor acquisition
-
-    1. Kiểm tra wiring / pin mapping.
-    2. Mở starter project.
-    3. Cấu hình peripheral.
-    4. Build.
-    5. Flash firmware.
-    6. Quan sát output.
-    7. Thay đổi một tham số và giải thích kết quả.
-
-    ```c
-    int main(void)
-    {
-        // TODO: init hardware
-
-        while (1)
-        {
-            // TODO: application loop
-        }
-    }
-    ```
-
-=== "QUIZ · Tự kiểm tra"
-
-    [Mở Quiz tuần 11](https://forms.google.com/){ .md-button .md-button--primary }
-
-    Gợi ý: câu hỏi khái niệm, timing, chẩn đoán lỗi và dự đoán output.
-
-=== "ASG · Bài tập"
-
-    Nộp một **engineering note** ngắn gồm:
-
-    - Mục tiêu.
-    - Sơ đồ / cấu hình.
-    - Code quan trọng.
-    - Minh chứng output.
-    - Một lỗi đã gặp và cách xử lý.
-    - Kết luận.
+    - Hoàn thành engineering note ngắn.
+    - Ghi điều đã hiểu, phép tính đã làm và câu hỏi còn vướng.
+    - Nếu có mô phỏng, lưu ảnh có nhãn và đơn vị.
+    - Không dùng số dự kiến thay số đo.
 
 ## Checklist
 
-- [ ] PRE
-- [ ] LEC
-- [ ] SIM
-- [ ] LAB
-- [ ] QUIZ
-- [ ] ASG
+- [ ] Đọc phần được giao
+- [ ] Làm phép tính / self-check
+- [ ] Có ít nhất một câu hỏi
+- [ ] Hoàn thành hoạt động
+- [ ] Lưu bằng chứng
