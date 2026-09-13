@@ -34,6 +34,27 @@
     ### LED matrix
     Một glyph 8×8 là tám byte. Mạch quét cần ánh xạ hàng/cột rõ, chỉ bật một hàng mỗi thời điểm và tắt hàng cũ trước khi đổi dữ liệu cột.
 
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig15-lcd1602-4bit.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig15-lcd1602-4bit.png" alt="LCD 1602 chế độ 4 bit" loading="lazy">
+      </a>
+      <figcaption>Hình 15. Giao tiếp LCD 1602 ở chế độ bốn bit.</figcaption>
+    </figure>
+
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig16-keypad-4x4-scan.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig16-keypad-4x4-scan.png" alt="Quét keypad 4x4" loading="lazy">
+      </a>
+      <figcaption>Hình 16. Cách quét bàn phím bốn hàng bốn cột.</figcaption>
+    </figure>
+
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig17-led-matrix-glyph.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig17-led-matrix-glyph.png" alt="Glyph LED matrix 8x8" loading="lazy">
+      </a>
+      <figcaption>Hình 17. Biểu diễn một ký tự bằng tám hàng tám cột.</figcaption>
+    </figure>
+
 === "ACT · Hoạt động trên lớp"
 
     **Bài toán:** Tạo glyph chữ đầu tên nhóm và mô tả cách phát hiện ảnh bị lật ngang/dọc.

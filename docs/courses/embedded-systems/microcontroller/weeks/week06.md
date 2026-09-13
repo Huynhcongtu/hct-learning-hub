@@ -36,6 +36,20 @@
     ### UART
     Mode 1 thường dùng khung 8N1. TXD/RXD là mức logic UART, **không nối trực tiếp RS-232 điện áp cao**.
 
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig10-timer-fc66-overflow.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig10-timer-fc66-overflow.png" alt="Timer bắt đầu từ FC66H" loading="lazy">
+      </a>
+      <figcaption>Hình 10. Timer bắt đầu từ FC66H và tràn sau 922 lần đếm.</figcaption>
+    </figure>
+
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig12-uart-8n1-a5.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig12-uart-8n1-a5.png" alt="Khung UART 8N1" loading="lazy">
+      </a>
+      <figcaption>Hình 12. Khung UART 8N1 của byte A5H.</figcaption>
+    </figure>
+
 === "ACT · Hoạt động trên lớp"
 
     **Bài toán:** Vẽ timeline một chu kỳ Timer và một frame UART 8N1, chỉ ra điểm cần đo.

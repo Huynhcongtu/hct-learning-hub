@@ -43,6 +43,13 @@
     - Indirect: địa chỉ nằm trong R0/R1/DPTR tùy lệnh.
     - Indexed: thường dùng truy xuất bảng CODE.
 
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig06-code-ram-sfr-map.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig06-code-ram-sfr-map.png" alt="CODE RAM và SFR" loading="lazy">
+      </a>
+      <figcaption>Hình 6. Bản đồ CODE, RAM và SFR dùng để liên hệ cơ chế định địa chỉ.</figcaption>
+    </figure>
+
 === "ACT · Hoạt động trên lớp"
 
     **Bài toán:** Lập bảng phân biệt địa chỉ, nội dung địa chỉ và hằng số cho 5 câu lệnh mẫu.

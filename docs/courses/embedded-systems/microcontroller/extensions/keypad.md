@@ -7,6 +7,20 @@
 - P3.1 TXD → RX terminal 9600 8N1.
 - GND chung.
 
+<figure class="hct-figure">
+  <a href="../../../../../assets/images/microcontroller/extensions/ext-keypad-4x4.png" target="_blank" rel="noopener">
+    <img src="../../../../../assets/images/microcontroller/extensions/ext-keypad-4x4.png" alt="Ánh xạ keypad 4x4" loading="lazy">
+  </a>
+  <figcaption>Ánh xạ hàng/cột của bài mở rộng keypad 4×4.</figcaption>
+</figure>
+
+<figure class="hct-figure">
+  <a href="../../../../../assets/images/microcontroller/theory/fig16-keypad-4x4-scan.png" target="_blank" rel="noopener">
+    <img src="../../../../../assets/images/microcontroller/theory/fig16-keypad-4x4-scan.png" alt="Nguyên lý quét keypad" loading="lazy">
+  </a>
+  <figcaption>Cách quét bàn phím bốn hàng bốn cột.</figcaption>
+</figure>
+
 ## Quy trình
 1. Xác định hàng/cột bằng sơ đồ hoặc continuity test.
 2. Dựng ma trận, đánh dấu 16 phím.

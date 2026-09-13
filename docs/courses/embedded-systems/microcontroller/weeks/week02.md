@@ -38,6 +38,27 @@
     Không gian CODE có thể địa chỉ hóa 64 KiB nhưng Flash vật lý của AT89S52 chỉ 8 KiB.
     Trong vùng 80H–FFH, truy cập trực tiếp chọn SFR; truy cập gián tiếp có thể chọn RAM cao trên S52.
 
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig04-at89s52-pinout.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig04-at89s52-pinout.png" alt="Sơ đồ chân AT89S52 PDIP40" loading="lazy">
+      </a>
+      <figcaption>Hình 4. Sơ đồ chân AT89S52 PDIP 40 nhìn từ trên.</figcaption>
+    </figure>
+
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig05-at89s52-minimum-system.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig05-at89s52-minimum-system.png" alt="Mạch tối thiểu AT89S52" loading="lazy">
+      </a>
+      <figcaption>Hình 5. Kết nối tối thiểu cho mạch thực hành AT89S52.</figcaption>
+    </figure>
+
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig06-code-ram-sfr-map.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig06-code-ram-sfr-map.png" alt="CODE RAM và SFR trên AT89S52" loading="lazy">
+      </a>
+      <figcaption>Hình 6. Cách phân biệt CODE, RAM và SFR trên AT89S52.</figcaption>
+    </figure>
+
 === "ACT · Hoạt động trên lớp"
 
     **Bài toán:** VCC = 5 V nhưng LED không chạy và RST ≈ 5 V liên tục. Xác định thứ tự kiểm tra.

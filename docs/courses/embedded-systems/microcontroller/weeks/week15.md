@@ -40,6 +40,13 @@
     ### Chuyển sang MCU hiện đại
     Signal, state machine, timing, debounce, timeout và verification vẫn giữ giá trị. GPIO, clock, voltage, peripheral và register phải đọc lại cho nền tảng mới.
 
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig27-measurement-debug-flow.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig27-measurement-debug-flow.png" alt="Verification và troubleshooting" loading="lazy">
+      </a>
+      <figcaption>Hình 27. Tư duy kiểm chứng và khoanh vùng lỗi dựa trên phép đo.</figcaption>
+    </figure>
+
 === "ACT · Hoạt động trên lớp"
 
     **Bài toán:** Chọn một bài đã làm và viết lại specification + test cases độc lập với 8051 để có thể port sang MCU khác.

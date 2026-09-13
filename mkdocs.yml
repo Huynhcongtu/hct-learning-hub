@@ -50,6 +50,7 @@ nav:
           - Toolchain & KIT: courses/embedded-systems/microcontroller/toolchain.md
           - Đánh giá & minh chứng: courses/embedded-systems/microcontroller/assessment.md
           - Bản đồ tài liệu nguồn: courses/embedded-systems/microcontroller/source-map.md
+          - Thư viện hình minh họa: courses/embedded-systems/microcontroller/illustrations.md
 
           - Lý thuyết 15 buổi:
               - Buổi 01 · Hệ thống nhúng, hệ đếm & CPU: courses/embedded-systems/microcontroller/weeks/week01.md

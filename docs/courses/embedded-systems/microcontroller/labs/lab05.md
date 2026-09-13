@@ -23,6 +23,20 @@ Tạo glyph 8×8, quét hàng bằng timer và kiểm chứng cực tính/giới
 !!! warning "Trước khi cấp điện"
     Đối chiếu sơ đồ KIT thực. Kiểm tra VCC/GND, chiều linh kiện, reset, clock, điện trở hạn dòng và jumper.
 
+<figure class="hct-figure">
+  <a href="../../../../../assets/images/microcontroller/labs/lab05-led-matrix.png" target="_blank" rel="noopener">
+    <img src="../../../../../assets/images/microcontroller/labs/lab05-led-matrix.png" alt="Sơ đồ Lab 05 LED matrix" loading="lazy">
+  </a>
+  <figcaption>Minh họa nguyên lý LED matrix 8×8.</figcaption>
+</figure>
+
+<figure class="hct-figure">
+  <a href="../../../../../assets/images/microcontroller/theory/fig17-led-matrix-glyph.png" target="_blank" rel="noopener">
+    <img src="../../../../../assets/images/microcontroller/theory/fig17-led-matrix-glyph.png" alt="Glyph 8x8" loading="lazy">
+  </a>
+  <figcaption>Biểu diễn ký tự bằng tám hàng tám cột.</figcaption>
+</figure>
+
 ## Quy trình từng bước
 
 1. Vẽ glyph và tính 8 byte.

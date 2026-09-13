@@ -25,6 +25,27 @@ Tạo PWM 20 bước bằng timer auto-reload, thay duty theo nút và bảo đ�
 !!! warning "Trước khi cấp điện"
     Đối chiếu sơ đồ KIT thực. Kiểm tra VCC/GND, chiều linh kiện, reset, clock, điện trở hạn dòng và jumper.
 
+<figure class="hct-figure">
+  <a href="../../../../../assets/images/microcontroller/labs/lab08-pwm-motor-driver.png" target="_blank" rel="noopener">
+    <img src="../../../../../assets/images/microcontroller/labs/lab08-pwm-motor-driver.png" alt="Sơ đồ Lab 08 PWM motor" loading="lazy">
+  </a>
+  <figcaption>Minh họa nguyên lý PWM và tầng công suất tải điện áp thấp.</figcaption>
+</figure>
+
+<figure class="hct-figure">
+  <a href="../../../../../assets/images/microcontroller/theory/fig21-pwm-duty-cycle.png" target="_blank" rel="noopener">
+    <img src="../../../../../assets/images/microcontroller/theory/fig21-pwm-duty-cycle.png" alt="Duty cycle PWM" loading="lazy">
+  </a>
+  <figcaption>Cùng chu kỳ nhưng duty khác nhau tạo mức tác động trung bình khác nhau.</figcaption>
+</figure>
+
+<figure class="hct-figure">
+  <a href="../../../../../assets/images/microcontroller/theory/fig22-reset-safe-power-stage.png" target="_blank" rel="noopener">
+    <img src="../../../../../assets/images/microcontroller/theory/fig22-reset-safe-power-stage.png" alt="Power stage reset-safe" loading="lazy">
+  </a>
+  <figcaption>Tầng công suất được thiết kế để tải tắt khi MCU reset.</figcaption>
+</figure>
+
 ## Quy trình từng bước
 
 1. Chưa nối motor; đo trước/sau inverter; reset→Gate thấp.

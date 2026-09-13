@@ -23,6 +23,20 @@ Biến tín hiệu nút cơ có dội thành một sự kiện nhấn ổn đị
 !!! warning "Trước khi cấp điện"
     Đối chiếu sơ đồ KIT thực. Kiểm tra VCC/GND, chiều linh kiện, reset, clock, điện trở hạn dòng và jumper.
 
+<figure class="hct-figure">
+  <a href="../../../../../assets/images/microcontroller/labs/lab02-button-debounce.png" target="_blank" rel="noopener">
+    <img src="../../../../../assets/images/microcontroller/labs/lab02-button-debounce.png" alt="Sơ đồ nút nhấn chống dội" loading="lazy">
+  </a>
+  <figcaption>Minh họa nguyên lý Lab 02 — nút nhấn và LED.</figcaption>
+</figure>
+
+<figure class="hct-figure">
+  <a href="../../../../../assets/images/microcontroller/theory/fig08-debounce-stable-state.png" target="_blank" rel="noopener">
+    <img src="../../../../../assets/images/microcontroller/theory/fig08-debounce-stable-state.png" alt="Mô hình debounce" loading="lazy">
+  </a>
+  <figcaption>Chỉ công nhận trạng thái sau khi tín hiệu ổn định đủ thời gian.</figcaption>
+</figure>
+
 ## Quy trình từng bước
 
 1. Đo continuity nút khi chưa cấp nguồn.

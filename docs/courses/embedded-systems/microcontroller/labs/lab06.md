@@ -26,6 +26,20 @@ Khởi động chuyển đổi ADC, đọc dữ liệu, xử lý timeout và ki�
 !!! warning "Trước khi cấp điện"
     Đối chiếu sơ đồ KIT thực. Kiểm tra VCC/GND, chiều linh kiện, reset, clock, điện trở hạn dòng và jumper.
 
+<figure class="hct-figure">
+  <a href="../../../../../assets/images/microcontroller/theory/fig19-lm35-adc0804-lcd.png" target="_blank" rel="noopener">
+    <img src="../../../../../assets/images/microcontroller/theory/fig19-lm35-adc0804-lcd.png" alt="LM35 ADC0804 LCD" loading="lazy">
+  </a>
+  <figcaption>Chuỗi đo nhiệt độ với LM35, ADC0804 và LCD.</figcaption>
+</figure>
+
+<figure class="hct-figure">
+  <a href="../../../../../assets/images/microcontroller/theory/fig18-adc-quantization.png" target="_blank" rel="noopener">
+    <img src="../../../../../assets/images/microcontroller/theory/fig18-adc-quantization.png" alt="Lượng tử hóa ADC" loading="lazy">
+  </a>
+  <figcaption>Lượng tử hóa điện áp thành các mức số.</figcaption>
+</figure>
+
 ## Quy trình từng bước
 
 1. Dựng ADC+clock RC; đo VREF/2.

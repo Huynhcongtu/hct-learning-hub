@@ -41,6 +41,20 @@
     ### Tài nguyên
     Không chỉ kiểm tra “trùng chân”; còn phải kiểm tra trùng Timer, bus, ISR và giới hạn dòng.
 
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig13-seven-segment-map.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig13-seven-segment-map.png" alt="Tên segment và bảng mã" loading="lazy">
+      </a>
+      <figcaption>Hình 13. Tên các đoạn và bảng mã anode chung của cấu hình mẫu.</figcaption>
+    </figure>
+
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig14-four-digit-multiplex.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig14-four-digit-multiplex.png" alt="Quét bốn digit" loading="lazy">
+      </a>
+      <figcaption>Hình 14. Quét bốn digit và dành khoảng tắt khi thay mã đoạn.</figcaption>
+    </figure>
+
 === "ACT · Hoạt động trên lớp"
 
     **Bài toán:** Từ sơ đồ common-anode, xây bảng mã 0–9 và giải thích mẫu cho 0, 1, 8.

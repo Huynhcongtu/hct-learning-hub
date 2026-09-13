@@ -33,6 +33,13 @@
     ### Wrap-around
     So sánh thời gian cần an toàn khi bộ đếm tick tràn; tránh logic chỉ đúng trước lần tràn đầu tiên.
 
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig11-interrupt-service-flow.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig11-interrupt-service-flow.png" alt="Luồng phục vụ ngắt" loading="lazy">
+      </a>
+      <figcaption>Hình 11. CPU phục vụ ISR rồi quay lại chương trình chính.</figcaption>
+    </figure>
+
 === "ACT · Hoạt động trên lớp"
 
     **Bài toán:** Chuyển chương trình dùng delay 1 s thành scheduler tick + state machine.

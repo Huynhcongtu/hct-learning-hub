@@ -37,6 +37,13 @@
     ### Ownership
     Giảm chia sẻ dữ liệu tốt hơn việc thêm critical section khắp nơi.
 
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig11-interrupt-service-flow.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig11-interrupt-service-flow.png" alt="ISR và chương trình chính" loading="lazy">
+      </a>
+      <figcaption>Hình 11. Quan hệ giữa ISR và luồng chính khi phân tích dữ liệu dùng chung.</figcaption>
+    </figure>
+
 === "ACT · Hoạt động trên lớp"
 
     **Bài toán:** Phân tích biến tick 16 bit cập nhật trong ISR, đề xuất 2 cách đọc an toàn.

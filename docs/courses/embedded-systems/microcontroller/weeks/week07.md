@@ -44,6 +44,20 @@
     T_byte ≈ 10 / 9600 ≈ 1.042 ms
     ```
 
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig10-timer-fc66-overflow.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig10-timer-fc66-overflow.png" alt="Tính reload Timer" loading="lazy">
+      </a>
+      <figcaption>Hình 10. Ví dụ trực quan cho bài toán reload Timer.</figcaption>
+    </figure>
+
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig12-uart-8n1-a5.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig12-uart-8n1-a5.png" alt="Timing UART 8N1" loading="lazy">
+      </a>
+      <figcaption>Hình 12. Khung UART 8N1 hỗ trợ tính bit time và frame time.</figcaption>
+    </figure>
+
 === "ACT · Hoạt động trên lớp"
 
     **Bài toán:** Tính reload cho 10 ms; tính thời gian tối thiểu truyền 48 byte 8N1; trình bày bước tính.

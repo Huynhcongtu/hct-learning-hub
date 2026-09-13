@@ -25,6 +25,20 @@ Thiết lập UART 9600 8N1, điều khiển LED bằng command, xử lý invali
 !!! warning "Trước khi cấp điện"
     Đối chiếu sơ đồ KIT thực. Kiểm tra VCC/GND, chiều linh kiện, reset, clock, điện trở hạn dòng và jumper.
 
+<figure class="hct-figure">
+  <a href="../../../../../assets/images/microcontroller/labs/lab10-uart-pc.png" target="_blank" rel="noopener">
+    <img src="../../../../../assets/images/microcontroller/labs/lab10-uart-pc.png" alt="Sơ đồ Lab 10 UART PC" loading="lazy">
+  </a>
+  <figcaption>Minh họa kết nối UART giữa AT89S52 và máy tính.</figcaption>
+</figure>
+
+<figure class="hct-figure">
+  <a href="../../../../../assets/images/microcontroller/theory/fig12-uart-8n1-a5.png" target="_blank" rel="noopener">
+    <img src="../../../../../assets/images/microcontroller/theory/fig12-uart-8n1-a5.png" alt="UART 8N1" loading="lazy">
+  </a>
+  <figcaption>Khung UART 8N1 dùng để đối chiếu dạng sóng.</figcaption>
+</figure>
+
 ## Quy trình từng bước
 
 1. Xác nhận USB-UART mức logic phù hợp; terminal 9600 8N1.

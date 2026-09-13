@@ -12,6 +12,13 @@ Khóa học được tổ chức từ hai học liệu QNU: **Giáo trình Kỹ 
 
 </div>
 
+<figure class="hct-figure">
+  <a href="../../../assets/images/microcontroller/theory/fig01-embedded-system.png" target="_blank" rel="noopener">
+    <img src="../../../assets/images/microcontroller/theory/fig01-embedded-system.png" alt="Hệ thống nhúng gồm cảm biến bộ xử lý và cơ cấu chấp hành" loading="lazy">
+  </a>
+  <figcaption>Hình 1. Mô hình hệ thống nhúng dùng xuyên suốt khóa học — từ tín hiệu vào đến điều khiển đầu ra.</figcaption>
+</figure>
+
 ## Kết quả học tập
 
 Sau khi hoàn thành lộ trình, sinh viên cần có khả năng:

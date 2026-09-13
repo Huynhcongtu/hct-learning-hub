@@ -25,6 +25,13 @@ Khởi tạo LCD ổn định, gửi lệnh/dữ liệu theo hai nibble và xử
 !!! warning "Trước khi cấp điện"
     Đối chiếu sơ đồ KIT thực. Kiểm tra VCC/GND, chiều linh kiện, reset, clock, điện trở hạn dòng và jumper.
 
+<figure class="hct-figure">
+  <a href="../../../../../assets/images/microcontroller/labs/lab04-lcd1602-4bit.png" target="_blank" rel="noopener">
+    <img src="../../../../../assets/images/microcontroller/labs/lab04-lcd1602-4bit.png" alt="Sơ đồ Lab 04 LCD1602" loading="lazy">
+  </a>
+  <figcaption>Minh họa nguyên lý LCD 1602 chế độ 4 bit.</figcaption>
+</figure>
+
 ## Quy trình từng bước
 
 1. Kiểm tra pin LCD, nguồn, V0, backlight.

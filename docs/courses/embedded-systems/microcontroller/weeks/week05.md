@@ -42,6 +42,20 @@
 
     Một cấu hình thực hành dùng 4 mẫu × 5 ms ≈ 20 ms để xác nhận ổn định.
 
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig08-debounce-stable-state.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig08-debounce-stable-state.png" alt="Chống dội theo trạng thái ổn định" loading="lazy">
+      </a>
+      <figcaption>Hình 8. Chỉ công nhận trạng thái sau khi tín hiệu ổn định đủ thời gian.</figcaption>
+    </figure>
+
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig09-finite-state-machine.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig09-finite-state-machine.png" alt="Máy trạng thái hữu hạn" loading="lazy">
+      </a>
+      <figcaption>Hình 9. Mô hình trạng thái cho thiết bị điều khiển đơn giản.</figcaption>
+    </figure>
+
 === "ACT · Hoạt động trên lớp"
 
     **Bài toán:** Thiết kế máy trạng thái nút nhấn sao cho giữ nút 3 s chỉ tạo một sự kiện.

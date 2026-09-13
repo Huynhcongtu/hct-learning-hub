@@ -12,6 +12,20 @@
 | Simulator | Proteus |
 | Measurement | Multimeter + oscilloscope / logic analyzer |
 
+<figure class="hct-figure">
+  <a href="../../../../assets/images/microcontroller/theory/fig04-at89s52-pinout.png" target="_blank" rel="noopener">
+    <img src="../../../../assets/images/microcontroller/theory/fig04-at89s52-pinout.png" alt="Pinout AT89S52" loading="lazy">
+  </a>
+  <figcaption>Sơ đồ chân AT89S52 PDIP40 — dùng để đối chiếu với KIT thực.</figcaption>
+</figure>
+
+<figure class="hct-figure">
+  <a href="../../../../assets/images/microcontroller/theory/fig05-at89s52-minimum-system.png" target="_blank" rel="noopener">
+    <img src="../../../../assets/images/microcontroller/theory/fig05-at89s52-minimum-system.png" alt="Mạch tối thiểu AT89S52" loading="lazy">
+  </a>
+  <figcaption>Kết nối tối thiểu: nguồn, clock, reset và EA.</figcaption>
+</figure>
+
 ## 2. Tạo project bằng Keil C51
 
 1. Tạo đường dẫn ngắn, ví dụ `C:\QNU_8051\L01`.
@@ -28,6 +42,13 @@
 !!! danger "HEX cũ"
     Build thất bại nhưng file HEX cũ vẫn có thể còn trên đĩa.
     Không dùng HEX cũ để kết luận mã mới hoạt động.
+
+<figure class="hct-figure">
+  <a href="../../../../assets/images/microcontroller/theory/fig07-build-sim-program-flow.png" target="_blank" rel="noopener">
+    <img src="../../../../assets/images/microcontroller/theory/fig07-build-sim-program-flow.png" alt="Build simulation programming flow" loading="lazy">
+  </a>
+  <figcaption>Chuỗi source → build → HEX → simulation → programming → hardware verification.</figcaption>
+</figure>
 
 ## 3. Proteus
 

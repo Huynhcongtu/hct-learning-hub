@@ -26,6 +26,27 @@ OFF → ON → giữ ON → OFF
 
 Ngưỡng mẫu của học liệu: **42 °C bật / 38 °C tắt**.
 
+<figure class="hct-figure">
+  <a href="../../../../../assets/images/microcontroller/extensions/project-thermostat-hysteresis.png" target="_blank" rel="noopener">
+    <img src="../../../../../assets/images/microcontroller/extensions/project-thermostat-hysteresis.png" alt="Ca thử thermostat" loading="lazy">
+  </a>
+  <figcaption>Ca thử hai ngưỡng của dự án tích hợp.</figcaption>
+</figure>
+
+<figure class="hct-figure">
+  <a href="../../../../../assets/images/microcontroller/theory/fig28-temperature-hysteresis.png" target="_blank" rel="noopener">
+    <img src="../../../../../assets/images/microcontroller/theory/fig28-temperature-hysteresis.png" alt="Hysteresis" loading="lazy">
+  </a>
+  <figcaption>Hai ngưỡng khác nhau ngăn đầu ra đổi liên tục quanh một mức nhiệt.</figcaption>
+</figure>
+
+<figure class="hct-figure">
+  <a href="../../../../../assets/images/microcontroller/theory/fig19-lm35-adc0804-lcd.png" target="_blank" rel="noopener">
+    <img src="../../../../../assets/images/microcontroller/theory/fig19-lm35-adc0804-lcd.png" alt="Chuỗi đo nhiệt độ" loading="lazy">
+  </a>
+  <figcaption>Chuỗi đo nhiệt độ với LM35, ADC0804 và LCD.</figcaption>
+</figure>
+
 ## Quy trình
 1. Lab 06 phải đạt trước.
 2. Lập bảng pin/Timer.

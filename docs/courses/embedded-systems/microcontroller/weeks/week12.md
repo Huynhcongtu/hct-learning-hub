@@ -37,6 +37,20 @@
     - Bit CH liên quan chạy/dừng oscillator.
     - Pin dự phòng giữ thời gian khi mất nguồn logic nếu cấu hình đúng.
 
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig22-reset-safe-power-stage.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig22-reset-safe-power-stage.png" alt="Tầng công suất an toàn khi reset" loading="lazy">
+      </a>
+      <figcaption>Hình 22. Tầng công suất có trạng thái tắt khi MCU reset.</figcaption>
+    </figure>
+
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig25-i2c-pullups.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig25-i2c-pullups.png" alt="Hai đường I2C có điện trở kéo lên" loading="lazy">
+      </a>
+      <figcaption>Hình 25. Hai đường I²C có điện trở kéo lên riêng.</figcaption>
+    </figure>
+
 === "ACT · Hoạt động trên lớp"
 
     **Bài toán:** Giải thích vì sao byte write có thể là D0H trong khi địa chỉ 7 bit là 68H.

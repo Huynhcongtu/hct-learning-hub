@@ -77,3 +77,16 @@
   .hct-hero { padding:40px 22px; margin-left:0; margin-right:0; }
   .hct-hero::after { font-size:5rem; right:12px; }
 }
+
+
+/* v1.2 Illustrated */
+.hct-figure { margin: 1.6rem auto 2rem; max-width: 920px; text-align: center; }
+.hct-figure a { display:block; border-radius:14px; overflow:hidden; border:1px solid var(--hct-line,#dfe7f0); background:var(--md-default-bg-color); box-shadow:0 8px 24px rgba(16,42,86,.08); }
+.hct-figure img { display:block; width:100%; height:auto; margin:0 auto; transition:transform .18s ease; }
+.hct-figure a:hover img { transform:scale(1.008); }
+.hct-figure figcaption { margin-top:.65rem; color:var(--md-default-fg-color--light); font-size:.83rem; line-height:1.45; font-style:italic; }
+.hct-gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:1.2rem; align-items:start; }
+.hct-gallery .hct-figure { margin:0 0 .8rem; }
+.hct-gallery .hct-figure a { background:#fff; }
+.hct-gallery .hct-figure img { aspect-ratio:16/10; object-fit:contain; }
+@media screen and (max-width:600px) { .hct-gallery { grid-template-columns:1fr; } }

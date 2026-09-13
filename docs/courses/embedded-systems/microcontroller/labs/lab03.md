@@ -23,6 +23,20 @@ Hiển thị 0000–9999, kiểm tra bảng mã, multiplexing, dòng tức thờ
 !!! warning "Trước khi cấp điện"
     Đối chiếu sơ đồ KIT thực. Kiểm tra VCC/GND, chiều linh kiện, reset, clock, điện trở hạn dòng và jumper.
 
+<figure class="hct-figure">
+  <a href="../../../../../assets/images/microcontroller/labs/lab03-four-digit-seven-segment.png" target="_blank" rel="noopener">
+    <img src="../../../../../assets/images/microcontroller/labs/lab03-four-digit-seven-segment.png" alt="Sơ đồ Lab 03" loading="lazy">
+  </a>
+  <figcaption>Minh họa nguyên lý quét bốn LED bảy đoạn.</figcaption>
+</figure>
+
+<figure class="hct-figure">
+  <a href="../../../../../assets/images/microcontroller/theory/fig14-four-digit-multiplex.png" target="_blank" rel="noopener">
+    <img src="../../../../../assets/images/microcontroller/theory/fig14-four-digit-multiplex.png" alt="Multiplexing bốn digit" loading="lazy">
+  </a>
+  <figcaption>Quét bốn digit với khoảng tắt khi thay mã đoạn.</figcaption>
+</figure>
+
 ## Quy trình từng bước
 
 1. Xác định common-anode và ánh xạ a–g.

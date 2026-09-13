@@ -63,6 +63,13 @@ CMOS, SPICE/ngspice, GF180MCU, schematic, layout, DRC, LVS, extraction và post-
 <span>PRE</span><b>→</b><span>LEC</span><b>→</b><span>SIM</span><b>→</b><span>LAB</span><b>→</b><span>QUIZ</span><b>→</b><span>ASG</span>
 </div>
 
+<figure class="hct-figure">
+  <a href="assets/images/microcontroller/theory/fig05-at89s52-minimum-system.png" target="_blank" rel="noopener">
+    <img src="assets/images/microcontroller/theory/fig05-at89s52-minimum-system.png" alt="Mạch tối thiểu AT89S52" loading="lazy">
+  </a>
+  <figcaption>Mạch tối thiểu AT89S52 — cấu hình tham chiếu của học phần.</figcaption>
+</figure>
+
 [**Vào khóa học →**](courses/embedded-systems/microcontroller/){ .md-button .md-button--primary }
 
 </div>

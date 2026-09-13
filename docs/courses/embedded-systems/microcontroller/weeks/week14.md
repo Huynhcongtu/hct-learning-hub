@@ -37,6 +37,20 @@
     ### Watchdog
     Watchdog chỉ có ý nghĩa khi phần mềm khỏe vẫn phục vụ nó; lỗi phần cứng có thể gây vòng reset lặp.
 
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig27-measurement-debug-flow.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig27-measurement-debug-flow.png" alt="Quy trình khoanh vùng lỗi" loading="lazy">
+      </a>
+      <figcaption>Hình 27. Trình tự khoanh vùng lỗi dựa trên phép đo.</figcaption>
+    </figure>
+
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig28-temperature-hysteresis.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig28-temperature-hysteresis.png" alt="Hysteresis nhiệt độ" loading="lazy">
+      </a>
+      <figcaption>Hình 28. Hai ngưỡng khác nhau ngăn đầu ra đổi liên tục quanh một mức nhiệt.</figcaption>
+    </figure>
+
 === "ACT · Hoạt động trên lớp"
 
     **Bài toán:** Lập resource allocation table cho ADC + LCD + UART + tải; tìm xung đột pin và Timer.

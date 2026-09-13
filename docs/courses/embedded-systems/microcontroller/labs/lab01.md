@@ -25,6 +25,20 @@ Tạo project C51, dựng mạch tối thiểu, sinh HEX và quan sát cùng hà
 !!! warning "Trước khi cấp điện"
     Đối chiếu sơ đồ KIT thực. Kiểm tra VCC/GND, chiều linh kiện, reset, clock, điện trở hạn dòng và jumper.
 
+<figure class="hct-figure">
+  <a href="../../../../../assets/images/microcontroller/labs/lab01-minimum-system.png" target="_blank" rel="noopener">
+    <img src="../../../../../assets/images/microcontroller/labs/lab01-minimum-system.png" alt="Sơ đồ nguyên lý Lab 01" loading="lazy">
+  </a>
+  <figcaption>Minh họa nguyên lý Lab 01 — mạch tối thiểu AT89S52 và điểm cần quan sát.</figcaption>
+</figure>
+
+<figure class="hct-figure">
+  <a href="../../../../../assets/images/microcontroller/theory/fig04-at89s52-pinout.png" target="_blank" rel="noopener">
+    <img src="../../../../../assets/images/microcontroller/theory/fig04-at89s52-pinout.png" alt="Pinout AT89S52" loading="lazy">
+  </a>
+  <figcaption>Sơ đồ chân AT89S52 PDIP40 để đối chiếu khi đấu KIT.</figcaption>
+</figure>
+
 ## Quy trình từng bước
 
 1. Tạo thư mục L01 và project AT89S52; chỉ thêm `main.c` của L01.

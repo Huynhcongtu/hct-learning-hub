@@ -40,6 +40,27 @@
     ### 4. CPU
     8051 có A, B, DPTR, PSW, PC; chương trình nằm trong CODE, biến thay đổi nằm trong DATA/RAM.
 
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig01-embedded-system.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig01-embedded-system.png" alt="Sơ đồ khối hệ thống nhúng" loading="lazy">
+      </a>
+      <figcaption>Hình 1. Hệ thống điều khiển gồm cảm biến, bộ xử lý và cơ cấu chấp hành.</figcaption>
+    </figure>
+
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig02-bit-weights-a5.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig02-bit-weights-a5.png" alt="Trọng số bit của byte A5H" loading="lazy">
+      </a>
+      <figcaption>Hình 2. Trọng số của tám bit trong byte A5H.</figcaption>
+    </figure>
+
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig03-8051-functional-blocks.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig03-8051-functional-blocks.png" alt="Các khối chức năng của 8051" loading="lazy">
+      </a>
+      <figcaption>Hình 3. Các khối chức năng chính của kiến trúc 8051.</figcaption>
+    </figure>
+
 === "ACT · Hoạt động trên lớp"
 
     **Bài toán:** Phân tích bộ đếm người ra/vào: input, output, thời gian đáp ứng, trạng thái lỗi.

@@ -36,6 +36,13 @@
     ### Build
     Một bản source tạo ra chương trình qua compiler/linker rồi sinh HEX. Build log, map file và HEX đều là minh chứng kỹ thuật.
 
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig07-build-sim-program-flow.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig07-build-sim-program-flow.png" alt="Quy trình build mô phỏng và nạp" loading="lazy">
+      </a>
+      <figcaption>Hình 7. Chuỗi tạo chương trình để mô phỏng và nạp.</figcaption>
+    </figure>
+
 === "ACT · Hoạt động trên lớp"
 
     **Bài toán:** Cho một đoạn C51 có array, con trỏ và biến volatile; xác định dữ liệu nào nên ở CODE/RAM và rủi ro.

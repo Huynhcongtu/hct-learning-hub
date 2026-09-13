@@ -12,7 +12,7 @@ Embedded Systems kết nối **phần mềm, phần cứng và hệ thống vậ
 
 <div class="hct-card" markdown>
 ### Kỹ thuật Vi điều khiển
-Khóa học mẫu 15 tuần về kiến trúc MCU, ngoại vi, giao tiếp, cảm biến, điều khiển và mini project.
+Khóa học minh họa hoàn chỉnh về 8051/AT89S52: 15 buổi lý thuyết, 10 bài thực hành, Keil C51, Proteus, KIT và project kiểm chứng.
 
 [**Vào khóa học →**](microcontroller/)
 </div>

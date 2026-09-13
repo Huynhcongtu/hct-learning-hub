@@ -35,6 +35,34 @@
     ### Waveform
     Nếu bảng có N mẫu và cập nhật với tần số `fs`, tần số sóng xấp xỉ `fs/N`.
 
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig18-adc-quantization.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig18-adc-quantization.png" alt="Lượng tử hóa ADC" loading="lazy">
+      </a>
+      <figcaption>Hình 18. Lượng tử hóa điện áp thành các mức số.</figcaption>
+    </figure>
+
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig19-lm35-adc0804-lcd.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig19-lm35-adc0804-lcd.png" alt="Chuỗi đo LM35 ADC0804 LCD" loading="lazy">
+      </a>
+      <figcaption>Hình 19. Chuỗi đo nhiệt độ với LM35, ADC0804 và LCD.</figcaption>
+    </figure>
+
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig20-dac0808-current-to-voltage.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig20-dac0808-current-to-voltage.png" alt="DAC0808 và tầng I/V" loading="lazy">
+      </a>
+      <figcaption>Hình 20. DAC0808 cần tầng chuyển dòng sang điện áp.</figcaption>
+    </figure>
+
+    <figure class="hct-figure">
+      <a href="../../../../../assets/images/microcontroller/theory/fig21-pwm-duty-cycle.png" target="_blank" rel="noopener">
+        <img src="../../../../../assets/images/microcontroller/theory/fig21-pwm-duty-cycle.png" alt="PWM với duty khác nhau" loading="lazy">
+      </a>
+      <figcaption>Hình 21. Cùng chu kỳ nhưng duty khác nhau tạo mức tác động trung bình khác nhau.</figcaption>
+    </figure>
+
 === "ACT · Hoạt động trên lớp"
 
     **Bài toán:** Tính mã ADC danh định ở 37 °C với full-scale 2.56 V; phân tích nguồn sai số.

@@ -25,6 +25,13 @@ Tạo 5 mức DAC, kiểm tra tầng I/V và tạo ramp/răng cưa bằng cập 
 !!! warning "Trước khi cấp điện"
     Đối chiếu sơ đồ KIT thực. Kiểm tra VCC/GND, chiều linh kiện, reset, clock, điện trở hạn dòng và jumper.
 
+<figure class="hct-figure">
+  <a href="../../../../../assets/images/microcontroller/theory/fig20-dac0808-current-to-voltage.png" target="_blank" rel="noopener">
+    <img src="../../../../../assets/images/microcontroller/theory/fig20-dac0808-current-to-voltage.png" alt="DAC0808 I/V" loading="lazy">
+  </a>
+  <figcaption>DAC0808 và tầng chuyển dòng sang điện áp.</figcaption>
+</figure>
+
 ## Quy trình từng bước
 
 1. Đo nguồn trước khi cắm IC.

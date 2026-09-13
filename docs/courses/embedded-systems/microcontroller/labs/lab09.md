@@ -25,6 +25,20 @@
 !!! warning "Trước khi cấp điện"
     Đối chiếu sơ đồ KIT thực. Kiểm tra VCC/GND, chiều linh kiện, reset, clock, điện trở hạn dòng và jumper.
 
+<figure class="hct-figure">
+  <a href="../../../../../assets/images/microcontroller/labs/lab09-nec-ir.png" target="_blank" rel="noopener">
+    <img src="../../../../../assets/images/microcontroller/labs/lab09-nec-ir.png" alt="Sơ đồ Lab 09 NEC IR" loading="lazy">
+  </a>
+  <figcaption>Minh họa nguyên lý điều khiển hồng ngoại NEC.</figcaption>
+</figure>
+
+<figure class="hct-figure">
+  <a href="../../../../../assets/images/microcontroller/theory/fig24-ir-receiver-nec.png" target="_blank" rel="noopener">
+    <img src="../../../../../assets/images/microcontroller/theory/fig24-ir-receiver-nec.png" alt="Bộ thu IR" loading="lazy">
+  </a>
+  <figcaption>Bộ thu hồng ngoại tách sóng mang trước khi MCU giải mã.</figcaption>
+</figure>
+
 ## Quy trình từng bước
 
 1. Tra đúng pin receiver.
